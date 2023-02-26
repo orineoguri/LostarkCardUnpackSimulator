@@ -25,9 +25,9 @@ namespace Orineoguri.Loa.CardUnpack
                 (int)this.numericUpDown8.Value, (int)this.numericUpDown9.Value, (int)this.numericUpDown10.Value, (int)this.numericUpDown11.Value,
                 (int)this.numericUpDown12.Value, (int)this.numericUpDown13.Value, (int)this.numericUpDown14.Value, (int)this.numericUpDown15.Value);
 
-            Dictionary<int, int> resultRanged = cardPacks.RangedCardPackTest();
+            Dictionary<int, int> resultRanged = cardPacks.UnpackRawCardPacks();
             string temp = "";
-            for(int index = 0; index < resultRanged.Keys.Count; index++)
+            for(int index = 1; index <= 50; index++)
             {
                 temp += index.ToString();
                 temp += " : ";

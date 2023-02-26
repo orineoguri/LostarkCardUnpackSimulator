@@ -22,6 +22,20 @@ namespace Orineoguri.Loa.CardUnpack
         private Dictionary<int, int> _rangedCardPacks2; //범위카드팩 2(심연팩 포함)
         private Dictionary<int, int> _rawCardPacks; //개별 카드팩
         private Random _random; //난수발생기
+
+        private readonly int ABYSS_START = 1; //심연팩 1번~19번(총 19종)
+        private readonly int ABYSS_END = 19;
+        private readonly int RELIC_START = 6; //전설팩 6번~24번(총 19종)
+        private readonly int RELIC_END = 24;
+        private readonly int HEROIC_START = 25; //영웅팩 22번~99번(총 75종)
+        private readonly int HEROIC_END = 99;
+        private readonly int RARE_START = 100; //희귀팩 100번~200번(총 101종)
+        private readonly int RARE_END = 200; 
+        private readonly int HIGH_START = 201; //고급팩 201번~257번(총 57종)
+        private readonly int HIGH_END = 257;
+        private readonly int COMMON_START = 258; //일반팩 258번~285번(총 28종)
+        private readonly int COMMON_END = 285;
+
         public CardPacks(int abyss, int relic, int heroic, int rare, int high, int common, //심연팩, 전설팩, 영웅팩, 희귀팩, 고급팩, 일반팩
             int relic_heroic, int relic_rare, int relic_high, int entire, //전영팩1, 전희팩1, 전고팩1, 전체팩1
             int relic_heroic2, int relic_rare2, int relic_high2, int entire2) //전영팩2, 전희팩2, 전고팩2, 전체팩2
@@ -121,6 +135,51 @@ namespace Orineoguri.Loa.CardUnpack
                 else if (randomNumber < 60) { _rawCardPacks[(int)CardRank.High] += 1; }
                 else { _rawCardPacks[(int)CardRank.Common] += 1; }
             }
+        }
+
+        public Dictionary<int, int> UnpackRawCardPacks()
+        {
+            UnpackRangedCardPacks(); //범위 카드팩 일단 해체
+            Dictionary<int, int> cardList = new Dictionary<int, int>();
+            for(int i = 1; i <= COMMON_END; i++) { cardList[i] = 0; } //카드리스트 내용물 0으로 초기화
+
+            for(int i = 0; i < _rawCardPacks[(int)CardRank.Abyss]; i++) //심연팩
+            {
+                int randomNumber = _random.Next(ABYSS_START, ABYSS_END);
+                cardList[randomNumber] += 1;
+            }
+            
+            for(int i = 0; i < _rawCardPacks[(int)CardRank.Relic]; i++) //전설팩
+            {
+                int randomNumber = _random.Next(RELIC_START, RELIC_END);
+                cardList[randomNumber] += 1;
+            }
+
+            for (int i = 0; i < _rawCardPacks[(int)CardRank.Heroic]; i++) //영웅팩
+            {
+                int randomNumber = _random.Next(HEROIC_START, HEROIC_END);
+                cardList[randomNumber] += 1;
+            }
+
+            for (int i = 0; i < _rawCardPacks[(int)CardRank.Rare]; i++) //희귀팩
+            {
+                int randomNumber = _random.Next(RARE_START, RARE_END);
+                cardList[randomNumber] += 1;
+            }
+
+            for (int i = 0; i < _rawCardPacks[(int)CardRank.High]; i++) //고급팩
+            {
+                int randomNumber = _random.Next(HIGH_START, HIGH_END);
+                cardList[randomNumber] += 1;
+            }
+
+            for (int i = 0; i < _rawCardPacks[(int)CardRank.Common]; i++) //일반팩
+            {
+                int randomNumber = _random.Next(COMMON_START, COMMON_END);
+                cardList[randomNumber] += 1;
+            }
+
+            return new Dictionary<int, int>(cardList);
         }
 
         public Dictionary<int, int> RangedCardPackTest()
