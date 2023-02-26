@@ -29,7 +29,7 @@ namespace Orineoguri.Loa.CardUnpack
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.OK = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -49,16 +49,19 @@ namespace Orineoguri.Loa.CardUnpack
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -66,17 +69,26 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // OK
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(713, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OK.Location = new System.Drawing.Point(713, 415);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(75, 23);
+            this.OK.TabIndex = 0;
+            this.OK.Text = "확인";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // button2
             // 
@@ -274,41 +286,6 @@ namespace Orineoguri.Loa.CardUnpack
             this.label9.TabIndex = 19;
             this.label9.Text = "웨이";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(24, 322);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 20;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(131, 322);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 21;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(238, 322);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 22;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(345, 322);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 23;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(24, 349);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 24;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -321,7 +298,7 @@ namespace Orineoguri.Loa.CardUnpack
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(131, 302);
+            this.label11.Location = new System.Drawing.Point(162, 303);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 13);
             this.label11.TabIndex = 26;
@@ -330,7 +307,7 @@ namespace Orineoguri.Loa.CardUnpack
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(238, 301);
+            this.label12.Location = new System.Drawing.Point(278, 303);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 13);
             this.label12.TabIndex = 27;
@@ -339,7 +316,7 @@ namespace Orineoguri.Loa.CardUnpack
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(345, 301);
+            this.label13.Location = new System.Drawing.Point(405, 303);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 13);
             this.label13.TabIndex = 28;
@@ -354,22 +331,81 @@ namespace Orineoguri.Loa.CardUnpack
             this.label14.TabIndex = 29;
             this.label14.Text = "전설";
             // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Location = new System.Drawing.Point(24, 318);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown8.TabIndex = 30;
+            // 
+            // numericUpDown9
+            // 
+            this.numericUpDown9.Location = new System.Drawing.Point(151, 319);
+            this.numericUpDown9.Name = "numericUpDown9";
+            this.numericUpDown9.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown9.TabIndex = 31;
+            // 
+            // numericUpDown10
+            // 
+            this.numericUpDown10.Location = new System.Drawing.Point(278, 317);
+            this.numericUpDown10.Name = "numericUpDown10";
+            this.numericUpDown10.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown10.TabIndex = 32;
+            // 
+            // numericUpDown11
+            // 
+            this.numericUpDown11.Location = new System.Drawing.Point(405, 318);
+            this.numericUpDown11.Name = "numericUpDown11";
+            this.numericUpDown11.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown11.TabIndex = 33;
+            // 
+            // numericUpDown12
+            // 
+            this.numericUpDown12.Location = new System.Drawing.Point(24, 345);
+            this.numericUpDown12.Name = "numericUpDown12";
+            this.numericUpDown12.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown12.TabIndex = 34;
+            // 
+            // numericUpDown13
+            // 
+            this.numericUpDown13.Location = new System.Drawing.Point(151, 346);
+            this.numericUpDown13.Name = "numericUpDown13";
+            this.numericUpDown13.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown13.TabIndex = 35;
+            // 
+            // numericUpDown14
+            // 
+            this.numericUpDown14.Location = new System.Drawing.Point(278, 344);
+            this.numericUpDown14.Name = "numericUpDown14";
+            this.numericUpDown14.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown14.TabIndex = 36;
+            // 
+            // numericUpDown15
+            // 
+            this.numericUpDown15.Location = new System.Drawing.Point(405, 346);
+            this.numericUpDown15.Name = "numericUpDown15";
+            this.numericUpDown15.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown15.TabIndex = 37;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numericUpDown15);
+            this.Controls.Add(this.numericUpDown14);
+            this.Controls.Add(this.numericUpDown13);
+            this.Controls.Add(this.numericUpDown12);
+            this.Controls.Add(this.numericUpDown11);
+            this.Controls.Add(this.numericUpDown10);
+            this.Controls.Add(this.numericUpDown9);
+            this.Controls.Add(this.numericUpDown8);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -389,7 +425,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.OK);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -399,6 +435,14 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,7 +450,7 @@ namespace Orineoguri.Loa.CardUnpack
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
@@ -426,16 +470,19 @@ namespace Orineoguri.Loa.CardUnpack
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown numericUpDown11;
+        private System.Windows.Forms.NumericUpDown numericUpDown12;
+        private System.Windows.Forms.NumericUpDown numericUpDown13;
+        private System.Windows.Forms.NumericUpDown numericUpDown14;
+        private System.Windows.Forms.NumericUpDown numericUpDown15;
     }
 }
 

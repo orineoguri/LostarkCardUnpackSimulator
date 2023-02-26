@@ -122,5 +122,11 @@ namespace Orineoguri.Loa.CardUnpack
                 else { _rawCardPacks[(int)CardRank.Common] += 1; }
             }
         }
+
+        public Dictionary<int, int> RangedCardPackTest()
+        {
+            UnpackRangedCardPacks();
+            return new Dictionary<int, int>(_rawCardPacks);
+        }
     }
 }
