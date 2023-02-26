@@ -16,5 +16,6 @@ namespace Orineoguri.Loa.CardUnpack
         {
             InitializeComponent();
         }
+
     }
 }
