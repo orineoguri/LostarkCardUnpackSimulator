@@ -30,7 +30,7 @@ namespace Orineoguri.Loa.CardUnpack
         private void InitializeComponent()
         {
             this.OK = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CheckAwakeLevel = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -90,15 +90,16 @@ namespace Orineoguri.Loa.CardUnpack
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
-            // button2
+            // CheckAwakeLevel
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(632, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CheckAwakeLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CheckAwakeLevel.Location = new System.Drawing.Point(632, 415);
+            this.CheckAwakeLevel.Name = "CheckAwakeLevel";
+            this.CheckAwakeLevel.Size = new System.Drawing.Size(75, 23);
+            this.CheckAwakeLevel.TabIndex = 1;
+            this.CheckAwakeLevel.Text = "각성확인";
+            this.CheckAwakeLevel.UseVisualStyleBackColor = true;
+            this.CheckAwakeLevel.Click += new System.EventHandler(this.CheckAwakeLevel_Click);
             // 
             // numericUpDown1
             // 
@@ -424,7 +425,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CheckAwakeLevel);
             this.Controls.Add(this.OK);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -451,7 +452,7 @@ namespace Orineoguri.Loa.CardUnpack
         #endregion
 
         private System.Windows.Forms.Button OK;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CheckAwakeLevel;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;

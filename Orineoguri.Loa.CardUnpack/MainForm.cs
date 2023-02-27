@@ -37,5 +37,16 @@ namespace Orineoguri.Loa.CardUnpack
             MessageBox.Show(temp);
             
         }
+
+        private void CheckAwakeLevel_Click(object sender, EventArgs e)
+        {
+            CardSet cardSet = new CardSet(
+                7, 17, 13, 6, 12, 9, 19,
+                (int)this.numericUpDown1.Value, (int)this.numericUpDown2.Value, (int)this.numericUpDown3.Value, (int)this.numericUpDown4.Value,
+                (int)this.numericUpDown5.Value, (int)this.numericUpDown6.Value, (int)this.numericUpDown7.Value,
+                0, 0, 0);
+
+            MessageBox.Show(cardSet.GetCurrentAwakeLevel(6).ToString());
+        }
     }
 }
