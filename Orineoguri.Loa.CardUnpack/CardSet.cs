@@ -28,6 +28,19 @@ namespace Orineoguri.Loa.CardUnpack
             this._selectionPacks = selectionPacks;
         }
 
+        private int GetSingleAwakeLevel(int slot)
+        {
+            int singleAwakeLevel;
+            if (_quantity[slot] < 2) { singleAwakeLevel = 0; }
+            else if (_quantity[slot] < 4) { singleAwakeLevel = 1; }
+            else if (_quantity[slot] < 7) { singleAwakeLevel = 2; }
+            else if (_quantity[slot] < 11) { singleAwakeLevel = 3; }
+            else if (_quantity[slot] < 16) { singleAwakeLevel = 4; }
+            else { singleAwakeLevel = 5; } //16장 이상은 무조건 5각으로 간주
+
+            return singleAwakeLevel;
+        }
+
         public int GetCurrentAwakeLevel(int minimumEquipAmount)
         {
             int sum = 0; //각성레벨 합계
@@ -41,14 +54,7 @@ namespace Orineoguri.Loa.CardUnpack
                 {
                     if(_quantity[index] > 0) { equipped++; } //한장이라도 등록했으면 장착매수에 합산
 
-                    int singleAwakeLevel; //카드1장의 각성레벨 구하기
-                    if(_quantity[index] < 2) { singleAwakeLevel = 0; }
-                    else if(_quantity[index] < 4) { singleAwakeLevel = 1; }
-                    else if(_quantity[index] < 7) { singleAwakeLevel = 2; }
-                    else if(_quantity[index] < 11) { singleAwakeLevel = 3; }
-                    else if(_quantity[index] < 16) { singleAwakeLevel = 4; }
-                    else { singleAwakeLevel = 5; } //16장 이상은 무조건 5각으로 간주
-
+                    int singleAwakeLevel = GetSingleAwakeLevel(index);
                     sum += singleAwakeLevel; //각성레벨 합계에 합산
                     min = (min > singleAwakeLevel) ? singleAwakeLevel : min; //현재 최소레벨보다 각성레벨이 낮을경우 최소레벨 교체
                 }
