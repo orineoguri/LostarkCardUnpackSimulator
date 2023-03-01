@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardList.cs" />
     <Compile Include="CardPacks.cs" />
     <Compile Include="CardSet.cs" />
     <Compile Include="MainForm.cs">
