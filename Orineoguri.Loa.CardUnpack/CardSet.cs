@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Orineoguri.Loa.CardUnpack
 {
@@ -38,6 +34,7 @@ namespace Orineoguri.Loa.CardUnpack
                 (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
             }
         };
+
         public CardSet( //메인폼용 생성자
             int slot1, int slot2, int slot3, int slot4, int slot5, int slot6, int slot7, //슬롯별 카드 번호, 빈슬롯0
             int quan1, int quan2, int quan3, int quan4, int quan5, int quan6, int quan7, //슬롯별 카드 개수, 없는카드 0
@@ -49,19 +46,19 @@ namespace Orineoguri.Loa.CardUnpack
             this._targetAwakeLevel = target;
             for(int i = 0; i<_slots.Length; i++) 
             {
-                if(_slots[i] != 0 && _minimumEquipAmount < 6) { _minimumEquipAmount++; } //빈슬롯 아니면 최소제한매수 증가
+                if(_slots[i] != 0 && _minimumEquipAmount < 6) { _minimumEquipAmount++; } //빈슬롯 아니면 최소장착매수 6까지 증가
             }
         }
 
         public CardSet(int[] slots, int[] quantity, int[] selectionPacks, int target)
-        { //내부용 생성자
+        { //내부 재성성용 생성자
             this._slots = slots;
             this._quantity = quantity;
             this._selectionPacks = selectionPacks;
             this._targetAwakeLevel = target;
             for (int i = 0; i < _slots.Length; i++)
             {
-                if (_slots[i] != 0 && _minimumEquipAmount < 6) { _minimumEquipAmount++; } //빈슬롯 아니면 최소제한매수 증가
+                if (_slots[i] != 0 && _minimumEquipAmount < 6) { _minimumEquipAmount++; } //빈슬롯 아니면 최소장착매수 6까지 증가
             }
         }
 
@@ -185,25 +182,6 @@ namespace Orineoguri.Loa.CardUnpack
             //큐에 노드 하나도 안남을때 까지 반복문 돌았으면 실패
             return false;
         }
-
-        public string TestState()
-        {
-            string result = "";
-            for(int i=0; i<_quantity.Length; i++)
-            {
-                result += _quantity[i].ToString();
-                result += ", ";
-            }
-            result += "\n";
-            for(int i=0; i<_selectionPacks.Length; i++)
-            {
-                result += _selectionPacks[i];
-                result += ", ";
-            }
-
-            return result;
-        }
-
-        
+       
     }
 }
