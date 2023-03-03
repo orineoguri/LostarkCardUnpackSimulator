@@ -11,6 +11,7 @@ namespace Orineoguri.Loa.CardUnpack
         private int[] _slots;
         private int[] _quantity;
         private int[] _selectionPacks;
+        private int _targetAwakeLevel;
 
         private static readonly HashSet<int>[] _selectionPackContents =
         {
@@ -39,18 +40,20 @@ namespace Orineoguri.Loa.CardUnpack
         public CardSet( //메인폼용 생성자
             int slot1, int slot2, int slot3, int slot4, int slot5, int slot6, int slot7, //슬롯별 카드 번호, 빈슬롯0
             int quan1, int quan2, int quan3, int quan4, int quan5, int quan6, int quan7, //슬롯별 카드 개수, 없는카드 0
-            int relicSelection, int commanderSelection, int loaonSelection) //전선팩
+            int relicSelection, int commanderSelection, int loaonSelection, int target) //전선팩
         {
             this._slots = new int[7] { slot1, slot2, slot3, slot4, slot5, slot6, slot7 };
             this._quantity = new int[7] { quan1, quan2, quan3, quan4, quan5, quan6, quan7 };
             this._selectionPacks = new int[3] { relicSelection, commanderSelection, loaonSelection };
+            this._targetAwakeLevel = target;
         }
 
-        public CardSet(int[] slots, int[] quantity, int[] selectionPacks)
+        public CardSet(int[] slots, int[] quantity, int[] selectionPacks, int target)
         { //내부용 생성자
             this._slots = slots;
             this._quantity = quantity;
             this._selectionPacks = selectionPacks;
+            this._targetAwakeLevel = target;
         }
 
         private int GetSingleAwakeLevel(int slot)
@@ -111,24 +114,53 @@ namespace Orineoguri.Loa.CardUnpack
             return required;
         }
 
-        public bool IsAwakable(int slot)
+        public CardSet GetLevelupCardSet(int slot)
         {
-            if(_quantity[slot] > 15) { return false; } // 풀각이면 각성 불가
-            int currentQuantity = _quantity[slot]; //
-            int required = getRequiredQuantityToLevelUp(currentQuantity);
-            int[] currentSelectionPack = (int[])_selectionPacks.Clone();
+            if(_quantity[slot] > 15) { return null; } //풀각이면 각성 불가
+            int currentQuantity = _quantity[slot]; //현재 수집 개수
+            int required = getRequiredQuantityToLevelUp(currentQuantity); //각성레벨 올리려면 몇장 더 필요한가
+            int gainedFromSelectionPack = 0;
+            int[] currentQuantityForRegenerate = (int[])_quantity.Clone(); //원본 안건드리고 클래스 재생성 하기 위한 수량 복사본
+            int[] currentSelectionPack = (int[])_selectionPacks.Clone(); //전선팩 리스트 복제
 
-            for(int index = 0; index < _selectionPackContents.Length; index++)
+            for (int index = 0; index < _selectionPackContents.Length; index++)
             {
-                if(!_selectionPackContents[index].Contains(_slots[slot])) { continue; } //현재 선택팩으로 선택할 수 없는 카드라면
-                else if(required <= currentSelectionPack[index]) { return true; } //현재 요구량이 선택팩 보유량보다 적거나 같다면
+                if (!_selectionPackContents[index].Contains(_slots[slot])) { continue; } //현재 선택팩으로 선택할 수 없는 카드라면
+                else if (required <= currentSelectionPack[index])
+                { //현재 요구량이 선택팩 보유량보다 적거나 같다면
+                    currentQuantityForRegenerate[slot] += required; //남은 요구량 적립
+                    currentQuantityForRegenerate[slot] += gainedFromSelectionPack; //지금까지 얻은 적립량 반영
+                    currentSelectionPack[index] -= required; //남은 요구량 만큼 전선팩 차감
+
+                    return new CardSet(this._slots, currentQuantityForRegenerate, currentSelectionPack, this._targetAwakeLevel);
+                }
                 else //현재 요구량이 선택팩 보유량보다 많다면
                 {
                     required -= currentSelectionPack[index]; //일단 가진 전선팩 전부 까고 다음 우선순위의 선택팩으로
+                    gainedFromSelectionPack += currentSelectionPack[index]; //깐만큼 적립
                     currentSelectionPack[index] = 0;
                 }
             }
-            return false;
+
+            return null;
+        }
+
+        public string TestState()
+        {
+            string result = "";
+            for(int i=0; i<_quantity.Length; i++)
+            {
+                result += _quantity[i].ToString();
+                result += ", ";
+            }
+            result += "\n";
+            for(int i=0; i<_selectionPacks.Length; i++)
+            {
+                result += _selectionPacks[i];
+                result += ", ";
+            }
+
+            return result;
         }
 
         

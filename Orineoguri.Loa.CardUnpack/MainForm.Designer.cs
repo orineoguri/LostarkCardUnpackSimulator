@@ -62,6 +62,8 @@ namespace Orineoguri.Loa.CardUnpack
             this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -79,6 +81,7 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
             this.SuspendLayout();
             // 
             // OK
@@ -390,12 +393,30 @@ namespace Orineoguri.Loa.CardUnpack
             this.numericUpDown17.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown17.TabIndex = 39;
             // 
+            // numericUpDown18
+            // 
+            this.numericUpDown18.Location = new System.Drawing.Point(151, 187);
+            this.numericUpDown18.Name = "numericUpDown18";
+            this.numericUpDown18.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown18.TabIndex = 40;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(151, 210);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 13);
+            this.label15.TabIndex = 41;
+            this.label15.Text = "목표 각성레벨";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.numericUpDown18);
             this.Controls.Add(this.numericUpDown17);
             this.Controls.Add(this.numericUpDown16);
             this.Controls.Add(this.numericUpDown15);
@@ -448,6 +469,7 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,6 +510,8 @@ namespace Orineoguri.Loa.CardUnpack
         private System.Windows.Forms.NumericUpDown numericUpDown15;
         private System.Windows.Forms.NumericUpDown numericUpDown16;
         private System.Windows.Forms.NumericUpDown numericUpDown17;
+        private System.Windows.Forms.NumericUpDown numericUpDown18;
+        private System.Windows.Forms.Label label15;
     }
 }
 

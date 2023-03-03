@@ -44,9 +44,13 @@ namespace Orineoguri.Loa.CardUnpack
                 7, 17, 13, 6, 12, 9, 19,
                 (int)this.numericUpDown1.Value, (int)this.numericUpDown2.Value, (int)this.numericUpDown3.Value, (int)this.numericUpDown4.Value,
                 (int)this.numericUpDown5.Value, (int)this.numericUpDown6.Value, (int)this.numericUpDown7.Value,
-                (int)this.numericUpDown16.Value, 0, (int)this.numericUpDown17.Value);
+                (int)this.numericUpDown16.Value, 0, (int)this.numericUpDown17.Value, (int)this.numericUpDown18.Value);
 
-            MessageBox.Show(cardSet.IsAwakable(4).ToString());
+            CardSet temp = cardSet.GetLevelupCardSet(4);
+            MessageBox.Show(cardSet.TestState());
+
+            if(temp is null) { MessageBox.Show("Impossible"); }
+            else { MessageBox.Show(temp.TestState()); }
         }
     }
 }
