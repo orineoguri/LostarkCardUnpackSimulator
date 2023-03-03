@@ -46,11 +46,8 @@ namespace Orineoguri.Loa.CardUnpack
                 (int)this.numericUpDown5.Value, (int)this.numericUpDown6.Value, (int)this.numericUpDown7.Value,
                 (int)this.numericUpDown16.Value, 0, (int)this.numericUpDown17.Value, (int)this.numericUpDown18.Value);
 
-            CardSet temp = cardSet.GetLevelupCardSet(4);
-            MessageBox.Show(cardSet.TestState());
+            MessageBox.Show(cardSet.CanBeTargetLevelWithSelectionPack().ToString());
 
-            if(temp is null) { MessageBox.Show("Impossible"); }
-            else { MessageBox.Show(temp.TestState()); }
         }
     }
 }

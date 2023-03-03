@@ -12,12 +12,13 @@ namespace Orineoguri.Loa.CardUnpack
         private int[] _quantity;
         private int[] _selectionPacks;
         private int _targetAwakeLevel;
+        private int _minimumEquipAmount = 0;
 
         private static readonly HashSet<int>[] _selectionPackContents =
         {
             new HashSet<int>() 
             { //0번 일반전선팩
-                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.Illiakan,
+                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.waye, (int)CardList.Illiakan,
                 (int)CardList.Beatrice, (int)CardList.Azena, (int)CardList.Bahunturr, (int)CardList.EstherLuteran, 
                 (int)CardList.EstherSien, (int)CardList.EstherGalaturr, (int)CardList.Ninave, (int)CardList.SaneKoukuSaton, 
                 (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
@@ -31,7 +32,7 @@ namespace Orineoguri.Loa.CardUnpack
             { //2번 로아온 전선팩
                 (int)CardList.Valtan, (int)CardList.Biackiss, (int)CardList.KoukuSaton,
                 (int)CardList.Abrelshud, (int)CardList.Kamen, (int)CardList.Kadan,
-                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.Illiakan,
+                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.waye, (int)CardList.Illiakan,
                 (int)CardList.Beatrice, (int)CardList.Azena, (int)CardList.Bahunturr, (int)CardList.EstherLuteran,
                 (int)CardList.EstherSien, (int)CardList.EstherGalaturr, (int)CardList.Ninave, (int)CardList.SaneKoukuSaton,
                 (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
@@ -46,6 +47,10 @@ namespace Orineoguri.Loa.CardUnpack
             this._quantity = new int[7] { quan1, quan2, quan3, quan4, quan5, quan6, quan7 };
             this._selectionPacks = new int[3] { relicSelection, commanderSelection, loaonSelection };
             this._targetAwakeLevel = target;
+            for(int i = 0; i<_slots.Length; i++) 
+            {
+                if(_slots[i] != 0 && _minimumEquipAmount < 6) { _minimumEquipAmount++; } //빈슬롯 아니면 최소제한매수 증가
+            }
         }
 
         public CardSet(int[] slots, int[] quantity, int[] selectionPacks, int target)
@@ -54,6 +59,10 @@ namespace Orineoguri.Loa.CardUnpack
             this._quantity = quantity;
             this._selectionPacks = selectionPacks;
             this._targetAwakeLevel = target;
+            for (int i = 0; i < _slots.Length; i++)
+            {
+                if (_slots[i] != 0 && _minimumEquipAmount < 6) { _minimumEquipAmount++; } //빈슬롯 아니면 최소제한매수 증가
+            }
         }
 
         private int GetSingleAwakeLevel(int slot)
@@ -69,7 +78,7 @@ namespace Orineoguri.Loa.CardUnpack
             return singleAwakeLevel;
         }
 
-        public int GetCurrentAwakeLevel(int minimumEquipAmount)
+        public int GetCurrentAwakeLevel()
         {
             int sum = 0; //각성레벨 합계
             int min = 5; //각성레벨 최소값인 카드의 각성레벨
@@ -88,7 +97,7 @@ namespace Orineoguri.Loa.CardUnpack
                 }
             }
 
-            if(equipped < minimumEquipAmount) { return 0; } //최소장착매수보다 적게 장착했으면 무조건 0각
+            if(equipped < _minimumEquipAmount) { return 0; } //최소장착매수보다 적게 장착했으면 무조건 0각
 
             return (sum - min); //7장을 장착할 수는 없으므로 각성레벨 가장낮은 카드의 레벨 빼고 반환
         }
@@ -117,6 +126,8 @@ namespace Orineoguri.Loa.CardUnpack
         public CardSet GetLevelupCardSet(int slot)
         {
             if(_quantity[slot] > 15) { return null; } //풀각이면 각성 불가
+            if (_slots[slot] == 0) { return null; } //빈슬롯이면 각성 불가
+
             int currentQuantity = _quantity[slot]; //현재 수집 개수
             int required = getRequiredQuantityToLevelUp(currentQuantity); //각성레벨 올리려면 몇장 더 필요한가
             int gainedFromSelectionPack = 0;
@@ -143,6 +154,36 @@ namespace Orineoguri.Loa.CardUnpack
             }
 
             return null;
+        }
+
+        public bool CanBeTargetLevelWithSelectionPack()
+        {
+            if(this.GetCurrentAwakeLevel() >= _targetAwakeLevel) { return true; } //이미 목표각성 달성했으면 성공
+
+            Queue<CardSet> BFSQueue = new Queue<CardSet>(); //너비우선탐색용 큐
+            for (int index = 0; index < _slots.Length; index++)
+            {
+                CardSet currentNode = this.GetLevelupCardSet(index);
+                if (currentNode is null) { continue; } //레벨업 가능한 슬롯이면 일단 큐에 넣어보기
+                else { BFSQueue.Enqueue(currentNode); }
+            }
+
+            while (BFSQueue.Count > 0) //큐에 노드 하나라도 들어있으면
+            {
+                CardSet currentNode = BFSQueue.Dequeue();
+                if(currentNode.GetCurrentAwakeLevel() >= _targetAwakeLevel) { return true; } //첫번째 노드 목표각성 달성했으면 성공
+                else
+                {
+                    for(int index=0; index< _slots.Length; index++) //목표각성 달성 실패했으면 자식노드 7종 테스트후 큐에 삽입
+                    {
+                        CardSet nextNode = currentNode.GetLevelupCardSet(index);
+                        if(nextNode is null) { continue; }
+                        else { BFSQueue.Enqueue(nextNode); }
+                    }
+                }
+            }
+            //큐에 노드 하나도 안남을때 까지 반복문 돌았으면 실패
+            return false;
         }
 
         public string TestState()
