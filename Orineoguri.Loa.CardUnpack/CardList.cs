@@ -8,7 +8,7 @@
         Abrelshud = 4, //아브렐슈드
         Kamen = 5, //카멘
         Silian = 6, //실리안
-        syandy = 7, //샨디
+        Shandi = 7, //샨디
         GingerWale = 8, //진저웨일
         waye = 9, //웨이
         Illiakan = 10, //일리아칸

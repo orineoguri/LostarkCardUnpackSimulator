@@ -11,6 +11,31 @@ namespace Orineoguri.Loa.CardUnpack
         private int[] _slots;
         private int[] _quantity;
         private int[] _selectionPacks;
+
+        private static readonly HashSet<int>[] _selectionPackContents =
+        {
+            new HashSet<int>() 
+            { //0번 일반전선팩
+                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.Illiakan,
+                (int)CardList.Beatrice, (int)CardList.Azena, (int)CardList.Bahunturr, (int)CardList.EstherLuteran, 
+                (int)CardList.EstherSien, (int)CardList.EstherGalaturr, (int)CardList.Ninave, (int)CardList.SaneKoukuSaton, 
+                (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
+            },
+            new HashSet<int>() 
+            { //1번 군단장 선택팩
+                (int)CardList.Valtan, (int)CardList.Biackiss, (int)CardList.KoukuSaton, 
+                (int)CardList.Abrelshud, (int)CardList.Kamen, (int)CardList.Illiakan
+            },
+            new HashSet<int>()
+            { //2번 로아온 전선팩
+                (int)CardList.Valtan, (int)CardList.Biackiss, (int)CardList.KoukuSaton,
+                (int)CardList.Abrelshud, (int)CardList.Kamen, (int)CardList.Kadan,
+                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.Illiakan,
+                (int)CardList.Beatrice, (int)CardList.Azena, (int)CardList.Bahunturr, (int)CardList.EstherLuteran,
+                (int)CardList.EstherSien, (int)CardList.EstherGalaturr, (int)CardList.Ninave, (int)CardList.SaneKoukuSaton,
+                (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
+            }
+        };
         public CardSet( //메인폼용 생성자
             int slot1, int slot2, int slot3, int slot4, int slot5, int slot6, int slot7, //슬롯별 카드 번호, 빈슬롯0
             int quan1, int quan2, int quan3, int quan4, int quan5, int quan6, int quan7, //슬롯별 카드 개수, 없는카드 0
@@ -64,5 +89,48 @@ namespace Orineoguri.Loa.CardUnpack
 
             return (sum - min); //7장을 장착할 수는 없으므로 각성레벨 가장낮은 카드의 레벨 빼고 반환
         }
+
+        private int getRequiredQuantityToLevelUp(int currentQuantity)
+        { //다음각성레벨 가려면 몇장이나 더 필요하죠?
+            int required = 0;
+            switch (currentQuantity)
+            {
+                case 0: case 1: case 3: case 6: case 10: case 15:
+                    required = 1; break;
+                case 2: case 5: case 9: case 14:
+                    required = 2; break;
+                case 4: case 8: case 13:
+                    required = 3; break;
+                case 7: case 12:
+                    required = 4; break;
+                case 11:
+                    required = 5; break;
+                default:
+                    required = 0; break;
+            }
+            return required;
+        }
+
+        public bool IsAwakable(int slot)
+        {
+            if(_quantity[slot] > 15) { return false; } // 풀각이면 각성 불가
+            int currentQuantity = _quantity[slot]; //
+            int required = getRequiredQuantityToLevelUp(currentQuantity);
+            int[] currentSelectionPack = (int[])_selectionPacks.Clone();
+
+            for(int index = 0; index < _selectionPackContents.Length; index++)
+            {
+                if(!_selectionPackContents[index].Contains(_slots[slot])) { continue; } //현재 선택팩으로 선택할 수 없는 카드라면
+                else if(required <= currentSelectionPack[index]) { return true; } //현재 요구량이 선택팩 보유량보다 적거나 같다면
+                else //현재 요구량이 선택팩 보유량보다 많다면
+                {
+                    required -= currentSelectionPack[index]; //일단 가진 전선팩 전부 까고 다음 우선순위의 선택팩으로
+                    currentSelectionPack[index] = 0;
+                }
+            }
+            return false;
+        }
+
+        
     }
 }
