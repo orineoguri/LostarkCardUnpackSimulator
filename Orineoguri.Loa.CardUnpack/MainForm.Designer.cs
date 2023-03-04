@@ -64,6 +64,17 @@ namespace Orineoguri.Loa.CardUnpack
             this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
+            this.numericUpDown19 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown20 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.numericUpDown23 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown24 = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -82,12 +93,18 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).BeginInit();
             this.SuspendLayout();
             // 
             // OK
             // 
             this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OK.Location = new System.Drawing.Point(713, 415);
+            this.OK.Location = new System.Drawing.Point(713, 474);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
             this.OK.TabIndex = 0;
@@ -98,7 +115,7 @@ namespace Orineoguri.Loa.CardUnpack
             // CheckAwakeLevel
             // 
             this.CheckAwakeLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CheckAwakeLevel.Location = new System.Drawing.Point(632, 415);
+            this.CheckAwakeLevel.Location = new System.Drawing.Point(632, 474);
             this.CheckAwakeLevel.Name = "CheckAwakeLevel";
             this.CheckAwakeLevel.Size = new System.Drawing.Size(75, 23);
             this.CheckAwakeLevel.TabIndex = 1;
@@ -321,11 +338,16 @@ namespace Orineoguri.Loa.CardUnpack
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(29, 13);
             this.label14.TabIndex = 29;
-            this.label14.Text = "전설";
+            this.label14.Text = "영웅";
             // 
             // numericUpDown8
             // 
             this.numericUpDown8.Location = new System.Drawing.Point(24, 318);
+            this.numericUpDown8.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown8.TabIndex = 30;
@@ -333,6 +355,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown9
             // 
             this.numericUpDown9.Location = new System.Drawing.Point(151, 319);
+            this.numericUpDown9.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown9.TabIndex = 31;
@@ -340,6 +367,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown10
             // 
             this.numericUpDown10.Location = new System.Drawing.Point(278, 317);
+            this.numericUpDown10.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown10.Name = "numericUpDown10";
             this.numericUpDown10.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown10.TabIndex = 32;
@@ -347,6 +379,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown11
             // 
             this.numericUpDown11.Location = new System.Drawing.Point(405, 318);
+            this.numericUpDown11.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown11.Name = "numericUpDown11";
             this.numericUpDown11.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown11.TabIndex = 33;
@@ -354,6 +391,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown12
             // 
             this.numericUpDown12.Location = new System.Drawing.Point(24, 345);
+            this.numericUpDown12.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown12.Name = "numericUpDown12";
             this.numericUpDown12.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown12.TabIndex = 34;
@@ -361,6 +403,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown13
             // 
             this.numericUpDown13.Location = new System.Drawing.Point(151, 346);
+            this.numericUpDown13.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown13.Name = "numericUpDown13";
             this.numericUpDown13.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown13.TabIndex = 35;
@@ -368,6 +415,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown14
             // 
             this.numericUpDown14.Location = new System.Drawing.Point(278, 344);
+            this.numericUpDown14.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown14.Name = "numericUpDown14";
             this.numericUpDown14.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown14.TabIndex = 36;
@@ -375,6 +427,11 @@ namespace Orineoguri.Loa.CardUnpack
             // numericUpDown15
             // 
             this.numericUpDown15.Location = new System.Drawing.Point(405, 346);
+            this.numericUpDown15.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown15.Name = "numericUpDown15";
             this.numericUpDown15.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown15.TabIndex = 37;
@@ -409,12 +466,110 @@ namespace Orineoguri.Loa.CardUnpack
             this.label15.TabIndex = 41;
             this.label15.Text = "목표 각성레벨";
             // 
+            // numericUpDown19
+            // 
+            this.numericUpDown19.Location = new System.Drawing.Point(24, 393);
+            this.numericUpDown19.Name = "numericUpDown19";
+            this.numericUpDown19.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown19.TabIndex = 42;
+            // 
+            // numericUpDown20
+            // 
+            this.numericUpDown20.Location = new System.Drawing.Point(151, 393);
+            this.numericUpDown20.Name = "numericUpDown20";
+            this.numericUpDown20.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown20.TabIndex = 43;
+            // 
+            // numericUpDown21
+            // 
+            this.numericUpDown21.Location = new System.Drawing.Point(278, 393);
+            this.numericUpDown21.Name = "numericUpDown21";
+            this.numericUpDown21.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown21.TabIndex = 44;
+            // 
+            // numericUpDown22
+            // 
+            this.numericUpDown22.Location = new System.Drawing.Point(405, 393);
+            this.numericUpDown22.Name = "numericUpDown22";
+            this.numericUpDown22.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown22.TabIndex = 45;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(151, 376);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 13);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "희귀";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(278, 376);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 13);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "고급";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(405, 376);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(29, 13);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "일반";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(24, 420);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(29, 13);
+            this.label19.TabIndex = 49;
+            this.label19.Text = "심연";
+            // 
+            // numericUpDown23
+            // 
+            this.numericUpDown23.Location = new System.Drawing.Point(24, 437);
+            this.numericUpDown23.Name = "numericUpDown23";
+            this.numericUpDown23.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown23.TabIndex = 50;
+            // 
+            // numericUpDown24
+            // 
+            this.numericUpDown24.Location = new System.Drawing.Point(151, 436);
+            this.numericUpDown24.Name = "numericUpDown24";
+            this.numericUpDown24.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown24.TabIndex = 51;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(151, 420);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(29, 13);
+            this.label20.TabIndex = 52;
+            this.label20.Text = "전설";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.numericUpDown24);
+            this.Controls.Add(this.numericUpDown23);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.numericUpDown22);
+            this.Controls.Add(this.numericUpDown21);
+            this.Controls.Add(this.numericUpDown20);
+            this.Controls.Add(this.numericUpDown19);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.numericUpDown18);
             this.Controls.Add(this.numericUpDown17);
@@ -470,6 +625,12 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,6 +673,17 @@ namespace Orineoguri.Loa.CardUnpack
         private System.Windows.Forms.NumericUpDown numericUpDown17;
         private System.Windows.Forms.NumericUpDown numericUpDown18;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown numericUpDown19;
+        private System.Windows.Forms.NumericUpDown numericUpDown20;
+        private System.Windows.Forms.NumericUpDown numericUpDown21;
+        private System.Windows.Forms.NumericUpDown numericUpDown22;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.NumericUpDown numericUpDown23;
+        private System.Windows.Forms.NumericUpDown numericUpDown24;
+        private System.Windows.Forms.Label label20;
     }
 }
 

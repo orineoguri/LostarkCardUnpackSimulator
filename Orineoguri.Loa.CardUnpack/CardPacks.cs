@@ -167,11 +167,5 @@ namespace Orineoguri.Loa.CardUnpack
 
             return new Dictionary<int, int>(cardList);
         }
-
-        public Dictionary<int, int> RangedCardPackTest()
-        {
-            UnpackRangedCardPacks();
-            return new Dictionary<int, int>(_rawCardPacks);
-        }
     }
 }

@@ -14,24 +14,24 @@ namespace Orineoguri.Loa.CardUnpack
         {
             new HashSet<int>() 
             { //0번 일반전선팩
-                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.waye, (int)CardList.Illiakan,
-                (int)CardList.Beatrice, (int)CardList.Azena, (int)CardList.Bahunturr, (int)CardList.EstherLuteran, 
-                (int)CardList.EstherSien, (int)CardList.EstherGalaturr, (int)CardList.Ninave, (int)CardList.SaneKoukuSaton, 
-                (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
+                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.waye, (int)CardName.Illiakan,
+                (int)CardName.Beatrice, (int)CardName.Azena, (int)CardName.Bahunturr, (int)CardName.EstherLuteran, 
+                (int)CardName.EstherSien, (int)CardName.EstherGalaturr, (int)CardName.Ninave, (int)CardName.SaneKoukuSaton, 
+                (int)CardName.Aman, (int)CardName.LordSilian, (int)CardName.DelainAman, (int)CardName.Kharmine, (int)CardName.GuardianLu
             },
             new HashSet<int>() 
             { //1번 군단장 선택팩
-                (int)CardList.Valtan, (int)CardList.Biackiss, (int)CardList.KoukuSaton, 
-                (int)CardList.Abrelshud, (int)CardList.Kamen, (int)CardList.Illiakan
+                (int)CardName.Valtan, (int)CardName.Biackiss, (int)CardName.KoukuSaton, 
+                (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.Illiakan
             },
             new HashSet<int>()
             { //2번 로아온 전선팩
-                (int)CardList.Valtan, (int)CardList.Biackiss, (int)CardList.KoukuSaton,
-                (int)CardList.Abrelshud, (int)CardList.Kamen, (int)CardList.Kadan,
-                (int)CardList.Silian, (int)CardList.Shandi, (int)CardList.GingerWale, (int)CardList.waye, (int)CardList.Illiakan,
-                (int)CardList.Beatrice, (int)CardList.Azena, (int)CardList.Bahunturr, (int)CardList.EstherLuteran,
-                (int)CardList.EstherSien, (int)CardList.EstherGalaturr, (int)CardList.Ninave, (int)CardList.SaneKoukuSaton,
-                (int)CardList.Aman, (int)CardList.LordSilian, (int)CardList.DelainAman, (int)CardList.Kharmine, (int)CardList.GuardianLu
+                (int)CardName.Valtan, (int)CardName.Biackiss, (int)CardName.KoukuSaton,
+                (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.Kadan,
+                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.waye, (int)CardName.Illiakan,
+                (int)CardName.Beatrice, (int)CardName.Azena, (int)CardName.Bahunturr, (int)CardName.EstherLuteran,
+                (int)CardName.EstherSien, (int)CardName.EstherGalaturr, (int)CardName.Ninave, (int)CardName.SaneKoukuSaton,
+                (int)CardName.Aman, (int)CardName.LordSilian, (int)CardName.DelainAman, (int)CardName.Kharmine, (int)CardName.GuardianLu
             }
         };
 

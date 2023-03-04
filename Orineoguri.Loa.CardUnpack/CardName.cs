@@ -1,6 +1,6 @@
 ﻿namespace Orineoguri.Loa.CardUnpack
 {
-    public enum CardList
+    public enum CardName
     {
         Valtan = 1, //발탄
         Biackiss =2, //비아키스
