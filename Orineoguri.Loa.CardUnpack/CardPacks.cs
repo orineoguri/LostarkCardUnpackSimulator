@@ -18,8 +18,8 @@ namespace Orineoguri.Loa.CardUnpack
 
     public class CardPacks
     {
-        private Dictionary<int, int>[] _rangedCardPack = new Dictionary<int, int>[2];
-        private Dictionary<int, int> _rawCardPacks; //개별 카드팩
+        private Dictionary<int, int>[] _rangedCardPack = new[] { new Dictionary<int, int>(), new Dictionary<int, int>()};
+        private Dictionary<int, int> _rawCardPacks = new Dictionary<int, int>(); //개별 카드팩
         private Random _random; //난수발생기
 
         private const int ABYSS_START = 1; //심연팩 1번~19번(총 19종)
