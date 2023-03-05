@@ -188,6 +188,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.Preset.Name = "Preset";
             this.Preset.Size = new System.Drawing.Size(162, 21);
             this.Preset.TabIndex = 7;
+            this.Preset.SelectedIndexChanged += new System.EventHandler(this.Preset_SelectedIndexChanged);
             // 
             // labelPreset
             // 
@@ -201,73 +202,87 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             // nameSlot0
             // 
+            this.nameSlot0.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot0.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot0.FormattingEnabled = true;
             this.nameSlot0.Location = new System.Drawing.Point(13, 64);
             this.nameSlot0.Name = "nameSlot0";
             this.nameSlot0.Size = new System.Drawing.Size(124, 21);
             this.nameSlot0.TabIndex = 9;
             this.nameSlot0.Tag = "0";
-            this.nameSlot0.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot0.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot1
             // 
+            this.nameSlot1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot1.FormattingEnabled = true;
             this.nameSlot1.Location = new System.Drawing.Point(144, 64);
             this.nameSlot1.Name = "nameSlot1";
             this.nameSlot1.Size = new System.Drawing.Size(124, 21);
             this.nameSlot1.TabIndex = 10;
             this.nameSlot1.Tag = "1";
-            this.nameSlot1.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot1.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot2
             // 
+            this.nameSlot2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot2.FormattingEnabled = true;
             this.nameSlot2.Location = new System.Drawing.Point(275, 64);
             this.nameSlot2.Name = "nameSlot2";
             this.nameSlot2.Size = new System.Drawing.Size(124, 21);
             this.nameSlot2.TabIndex = 11;
             this.nameSlot2.Tag = "2";
-            this.nameSlot2.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot2.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot3
             // 
+            this.nameSlot3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot3.FormattingEnabled = true;
             this.nameSlot3.Location = new System.Drawing.Point(406, 64);
             this.nameSlot3.Name = "nameSlot3";
             this.nameSlot3.Size = new System.Drawing.Size(124, 21);
             this.nameSlot3.TabIndex = 12;
             this.nameSlot3.Tag = "3";
-            this.nameSlot3.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot3.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot4
             // 
+            this.nameSlot4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot4.FormattingEnabled = true;
             this.nameSlot4.Location = new System.Drawing.Point(537, 64);
             this.nameSlot4.Name = "nameSlot4";
             this.nameSlot4.Size = new System.Drawing.Size(124, 21);
             this.nameSlot4.TabIndex = 13;
             this.nameSlot4.Tag = "4";
-            this.nameSlot4.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot4.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot5
             // 
+            this.nameSlot5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot5.FormattingEnabled = true;
             this.nameSlot5.Location = new System.Drawing.Point(668, 64);
             this.nameSlot5.Name = "nameSlot5";
             this.nameSlot5.Size = new System.Drawing.Size(124, 21);
             this.nameSlot5.TabIndex = 14;
             this.nameSlot5.Tag = "5";
-            this.nameSlot5.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot5.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot6
             // 
+            this.nameSlot6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.nameSlot6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nameSlot6.FormattingEnabled = true;
             this.nameSlot6.Location = new System.Drawing.Point(799, 64);
             this.nameSlot6.Name = "nameSlot6";
             this.nameSlot6.Size = new System.Drawing.Size(124, 21);
             this.nameSlot6.TabIndex = 15;
             this.nameSlot6.Tag = "6";
-            this.nameSlot6.TextChanged += new System.EventHandler(this.CardSlotUpdated);
+            this.nameSlot6.SelectedIndexChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot0
             // 

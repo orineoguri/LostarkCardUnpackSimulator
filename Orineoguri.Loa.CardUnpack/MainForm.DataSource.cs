@@ -21,29 +21,41 @@ namespace Orineoguri.Loa.CardUnpack
             //프리셋용 데이터테이블 필드 추가
             _presets.Columns.Add("index", typeof(int)); //인덱스
             _presets.Columns.Add("name", typeof(string)); //이름
-            _presets.Columns.Add("cards", typeof(Array)); //카드리스트 - 길이7의 int배열
+            _presets.Columns.Add("cards", typeof(int[])); //카드리스트 - 길이7의 int배열
             _presets.Columns.Add("defaultGoal", typeof(int)); //목표각성수치 기본값
 
             //프리셋 
             _presets.Rows.Add(new object[] {0, "빈 프리셋", new[] {0,0,0,0,0,0,0 }, 0});
 
-            _presets.Rows.Add(new object[] {1, "세상을 구하는 빛",
+            _presets.Rows.Add(new object[] {1, "세상을 구하는 빛(18각)",
                 new[] {(int)CardName.Shandi,(int)CardName.Azena, (int)CardName.Ninave, 
+                    (int)CardName.Kadan, (int)CardName.Bahunturr, (int)CardName.Silian, (int)CardName.Waye }, 18});
+
+            _presets.Rows.Add(new object[] {2, "세상을 구하는 빛(30각)",
+                new[] {(int)CardName.Shandi,(int)CardName.Azena, (int)CardName.Ninave,
                     (int)CardName.Kadan, (int)CardName.Bahunturr, (int)CardName.Silian, (int)CardName.Waye }, 30});
 
-            _presets.Rows.Add(new object[] {2, "남겨진 바람의 절벽",
+            _presets.Rows.Add(new object[] {3, "남겨진 바람의 절벽(12각)",
+                new[] {(int)CardName.Aman,(int)CardName.Seria, (int)CardName.ExecutionerSolas,
+                    (int)CardName.LordSilian, (int)CardName.Kharmine, (int)CardName.DelainAman, 0 }, 12});
+
+            _presets.Rows.Add(new object[] {4, "남겨진 바람의 절벽(30각)",
                 new[] {(int)CardName.Aman,(int)CardName.Seria, (int)CardName.ExecutionerSolas,
                     (int)CardName.LordSilian, (int)CardName.Kharmine, (int)CardName.DelainAman, 0 }, 30});
 
-            _presets.Rows.Add(new object[] {3, "카제로스의 군단장",
+            _presets.Rows.Add(new object[] {5, "카제로스의 군단장(18각)",
+                new[] {(int)CardName.Valtan,(int)CardName.Illiakan, (int)CardName.Biackiss,
+                    (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.KoukuSaton, 0 }, 18});
+
+            _presets.Rows.Add(new object[] {6, "카제로스의 군단장(30각)",
                 new[] {(int)CardName.Valtan,(int)CardName.Illiakan, (int)CardName.Biackiss,
                     (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.KoukuSaton, 0 }, 30});
 
-            _presets.Rows.Add(new object[] {4, "창의 달인", //라하르트, 몽나, 앨버하스틱, 아르카디아, 하이비 집행관
+            _presets.Rows.Add(new object[] {7, "창의 달인", //라하르트, 몽나, 앨버하스틱, 아르카디아, 하이비 집행관
                 new[] {(int)CardName.Larhart,(int)CardName.GingerWale, (int)CardName.PhantomKnight,
                     (int)CardName.Alberhastic, (int)CardName.Arcadia, (int)CardName.HybeeExecutioner, 0 }, 30});
 
-            _presets.Rows.Add(new object[] {5, "세 우마르 + 라제니스", //에이케르, 나베르, 알레그로
+            _presets.Rows.Add(new object[] {8, "세 우마르 + 라제니스", //에이케르, 나베르, 알레그로
                 new[] {(int)CardName.Eikerr,(int)CardName.Naber, (int)CardName.EstherGalaturr,
                     (int)CardName.Beatrice, (int)CardName.Alegro, 0, 0 }, 25});
 

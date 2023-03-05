@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Orineoguri.Loa.CardUnpack
 {
@@ -52,7 +53,7 @@ namespace Orineoguri.Loa.CardUnpack
                 _slotAwakes[index].Image = awakeImage;
 
                 //잔여량 반영
-                if(_cardRemains[index].Value != 0) { _slotRemains[index].Visible = false; return; } //잔여량 0이면 표시안함
+                if(_cardRemains[index].Value == 0) { _slotRemains[index].Visible = false; return; } //잔여량 0이면 표시안함
                 _slotRemains[index].Visible = true;
                 Bitmap remainsImage = (Bitmap)Resources.ResourceManager.GetObject("remain" + ((int)_cardRemains[index].Value).ToString("D2"));
                 _slotRemains[index].Image = remainsImage;
@@ -87,6 +88,32 @@ namespace Orineoguri.Loa.CardUnpack
             //dispose the Graphics object
             g.Dispose();
             return newBitmap;
+        }
+
+        private void InitializeSlotImages()
+        {
+            for (int index = 0; index < NUMBER_OF_SLOTS; index++)
+            {
+                _slotAwakes[index] = new PictureBox
+                {
+                    Size = SLOT_IMG_SIZE,
+                    Location = SLOT_IMG_LOCATION,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BackColor = Color.Transparent
+                };
+                _slotRemains[index] = new PictureBox
+                {
+                    Size = SLOT_IMG_SIZE,
+                    Location = SLOT_IMG_LOCATION,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BackColor = Color.Transparent
+                };
+                _slotImages[index].Controls.Add(_slotAwakes[index]);
+                _slotAwakes[index].Controls.Add(_slotRemains[index]);
+
+                _cardNames[index].DataSource = _cardNameList.Clone();
+                _cardNames[index].SelectedIndex = 0;
+            }
         }
     }
 }
