@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,6 +81,46 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Img000.png" />
+    <Content Include="Resources\Img001.png" />
+    <Content Include="Resources\Img002.png" />
+    <Content Include="Resources\Img003.png" />
+    <Content Include="Resources\Img004.png" />
+    <Content Include="Resources\Img005.png" />
+    <Content Include="Resources\Img006.png" />
+    <Content Include="Resources\Img007.png" />
+    <Content Include="Resources\Img008.png" />
+    <Content Include="Resources\Img009.png" />
+    <Content Include="Resources\Img010.png" />
+    <Content Include="Resources\Img012.png" />
+    <Content Include="Resources\Img013.png" />
+    <Content Include="Resources\Img017.png" />
+    <Content Include="Resources\Img019.png" />
+    <Content Include="Resources\Img020.png" />
+    <Content Include="Resources\Img021.png" />
+    <Content Include="Resources\Img022.png" />
+    <Content Include="Resources\Img023.png" />
+    <Content Include="Resources\Img041.png" />
+    <Content Include="Resources\Img080.png" />
+    <Content Include="Resources\Img081.png" />
+    <Content Include="Resources\Img117.png" />
+    <Content Include="Resources\Img127.png" />
+    <Content Include="Resources\Img213.png" />
+    <Content Include="Resources\Img237.png" />
+    <Content Include="Resources\s_pirateCoin.png" />
+    <Content Include="Resources\s_rangeEntire.png" />
+    <Content Include="Resources\s_rangeHeroic.png" />
+    <Content Include="Resources\s_rangeHigh.png" />
+    <Content Include="Resources\s_rangeRare.png" />
+    <Content Include="Resources\s_rawCommonPack.png" />
+    <Content Include="Resources\s_rawHeroicPack.png" />
+    <Content Include="Resources\s_rawHighPack.png" />
+    <Content Include="Resources\s_rawRarePack.png" />
+    <Content Include="Resources\s_rawRelicPack.png" />
+    <Content Include="Resources\s_selectionPack.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
