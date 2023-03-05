@@ -57,6 +57,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.ImageProcessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -87,6 +90,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\awake0.png" />
+    <Content Include="Resources\awake1.png" />
+    <Content Include="Resources\awake2.png" />
+    <Content Include="Resources\awake3.png" />
+    <Content Include="Resources\awake4.png" />
+    <Content Include="Resources\awake5.png" />
     <Content Include="Resources\Img000.png" />
     <Content Include="Resources\Img001.png" />
     <Content Include="Resources\Img002.png" />
@@ -98,8 +107,10 @@
     <Content Include="Resources\Img008.png" />
     <Content Include="Resources\Img009.png" />
     <Content Include="Resources\Img010.png" />
+    <Content Include="Resources\Img011.png" />
     <Content Include="Resources\Img012.png" />
     <Content Include="Resources\Img013.png" />
+    <Content Include="Resources\Img016.png" />
     <Content Include="Resources\Img017.png" />
     <Content Include="Resources\Img019.png" />
     <Content Include="Resources\Img020.png" />
@@ -116,6 +127,21 @@
     <Content Include="Resources\Img175.png" />
     <Content Include="Resources\Img213.png" />
     <Content Include="Resources\Img237.png" />
+    <Content Include="Resources\remain01.png" />
+    <Content Include="Resources\remain02.png" />
+    <Content Include="Resources\remain03.png" />
+    <Content Include="Resources\remain04.png" />
+    <Content Include="Resources\remain05.png" />
+    <Content Include="Resources\remain06.png" />
+    <Content Include="Resources\remain07.png" />
+    <Content Include="Resources\remain08.png" />
+    <Content Include="Resources\remain09.png" />
+    <Content Include="Resources\remain10.png" />
+    <Content Include="Resources\remain11.png" />
+    <Content Include="Resources\remain12.png" />
+    <Content Include="Resources\remain13.png" />
+    <Content Include="Resources\remain14.png" />
+    <Content Include="Resources\remain15.png" />
     <Content Include="Resources\s_pirateCoin.png" />
     <Content Include="Resources\s_rangeEntire.png" />
     <Content Include="Resources\s_rangeHeroic.png" />

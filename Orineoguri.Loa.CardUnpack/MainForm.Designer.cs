@@ -207,6 +207,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot0.Size = new System.Drawing.Size(124, 21);
             this.nameSlot0.TabIndex = 9;
             this.nameSlot0.Tag = "0";
+            this.nameSlot0.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot1
             // 
@@ -216,6 +217,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot1.Size = new System.Drawing.Size(124, 21);
             this.nameSlot1.TabIndex = 10;
             this.nameSlot1.Tag = "1";
+            this.nameSlot1.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot2
             // 
@@ -225,6 +227,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot2.Size = new System.Drawing.Size(124, 21);
             this.nameSlot2.TabIndex = 11;
             this.nameSlot2.Tag = "2";
+            this.nameSlot2.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot3
             // 
@@ -234,6 +237,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot3.Size = new System.Drawing.Size(124, 21);
             this.nameSlot3.TabIndex = 12;
             this.nameSlot3.Tag = "3";
+            this.nameSlot3.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot4
             // 
@@ -243,6 +247,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot4.Size = new System.Drawing.Size(124, 21);
             this.nameSlot4.TabIndex = 13;
             this.nameSlot4.Tag = "4";
+            this.nameSlot4.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot5
             // 
@@ -252,6 +257,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot5.Size = new System.Drawing.Size(124, 21);
             this.nameSlot5.TabIndex = 14;
             this.nameSlot5.Tag = "5";
+            this.nameSlot5.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // nameSlot6
             // 
@@ -261,6 +267,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.nameSlot6.Size = new System.Drawing.Size(124, 21);
             this.nameSlot6.TabIndex = 15;
             this.nameSlot6.Tag = "6";
+            this.nameSlot6.TextChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot0
             // 
@@ -272,6 +279,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot0.Tag = "0";
             this.collectedSlot0.Text = "수집/각성/잔여";
             this.collectedSlot0.UseVisualStyleBackColor = true;
+            this.collectedSlot0.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot0
             // 
@@ -285,6 +293,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot0.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot0.TabIndex = 17;
             this.awakeSlot0.Tag = "0";
+            this.awakeSlot0.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot0
             // 
@@ -298,6 +307,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot0.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot0.TabIndex = 18;
             this.remainingSlot0.Tag = "0";
+            this.remainingSlot0.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot1
             // 
@@ -309,6 +319,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot1.Tag = "1";
             this.collectedSlot1.Text = "수집/각성/잔여";
             this.collectedSlot1.UseVisualStyleBackColor = true;
+            this.collectedSlot1.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot1
             // 
@@ -322,6 +333,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot1.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot1.TabIndex = 20;
             this.awakeSlot1.Tag = "1";
+            this.awakeSlot1.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot1
             // 
@@ -335,6 +347,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot1.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot1.TabIndex = 21;
             this.remainingSlot1.Tag = "1";
+            this.remainingSlot1.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot2
             // 
@@ -346,6 +359,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot2.Tag = "2";
             this.collectedSlot2.Text = "수집/각성/잔여";
             this.collectedSlot2.UseVisualStyleBackColor = true;
+            this.collectedSlot2.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot2
             // 
@@ -359,6 +373,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot2.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot2.TabIndex = 23;
             this.awakeSlot2.Tag = "2";
+            this.awakeSlot2.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot2
             // 
@@ -372,6 +387,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot2.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot2.TabIndex = 24;
             this.remainingSlot2.Tag = "2";
+            this.remainingSlot2.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot3
             // 
@@ -383,6 +399,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot3.Tag = "3";
             this.collectedSlot3.Text = "수집/각성/잔여";
             this.collectedSlot3.UseVisualStyleBackColor = true;
+            this.collectedSlot3.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot3
             // 
@@ -396,6 +413,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot3.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot3.TabIndex = 26;
             this.awakeSlot3.Tag = "3";
+            this.awakeSlot3.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot3
             // 
@@ -409,6 +427,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot3.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot3.TabIndex = 27;
             this.remainingSlot3.Tag = "3";
+            this.remainingSlot3.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot4
             // 
@@ -420,6 +439,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot4.Tag = "4";
             this.collectedSlot4.Text = "수집/각성/잔여";
             this.collectedSlot4.UseVisualStyleBackColor = true;
+            this.collectedSlot4.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot4
             // 
@@ -433,6 +453,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot4.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot4.TabIndex = 29;
             this.awakeSlot4.Tag = "4";
+            this.awakeSlot4.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot4
             // 
@@ -446,6 +467,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot4.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot4.TabIndex = 30;
             this.remainingSlot4.Tag = "4";
+            this.remainingSlot4.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot5
             // 
@@ -457,6 +479,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot5.Tag = "5";
             this.collectedSlot5.Text = "수집/각성/잔여";
             this.collectedSlot5.UseVisualStyleBackColor = true;
+            this.collectedSlot5.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot5
             // 
@@ -470,6 +493,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot5.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot5.TabIndex = 32;
             this.awakeSlot5.Tag = "5";
+            this.awakeSlot5.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot5
             // 
@@ -483,6 +507,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot5.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot5.TabIndex = 33;
             this.remainingSlot5.Tag = "5";
+            this.remainingSlot5.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // collectedSlot6
             // 
@@ -494,6 +519,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.collectedSlot6.Tag = "6";
             this.collectedSlot6.Text = "수집/각성/잔여";
             this.collectedSlot6.UseVisualStyleBackColor = true;
+            this.collectedSlot6.CheckedChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // awakeSlot6
             // 
@@ -507,6 +533,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.awakeSlot6.Size = new System.Drawing.Size(124, 20);
             this.awakeSlot6.TabIndex = 35;
             this.awakeSlot6.Tag = "6";
+            this.awakeSlot6.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // remainingSlot6
             // 
@@ -520,6 +547,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.remainingSlot6.Size = new System.Drawing.Size(124, 20);
             this.remainingSlot6.TabIndex = 36;
             this.remainingSlot6.Tag = "6";
+            this.remainingSlot6.ValueChanged += new System.EventHandler(this.CardSlotUpdated);
             // 
             // labelTarget
             // 

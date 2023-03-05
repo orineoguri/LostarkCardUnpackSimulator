@@ -60,6 +60,12 @@ namespace Orineoguri.Loa.CardUnpack
             }
         }
 
+        private void CardSlotUpdated(object sender, EventArgs e)
+        {
+            int index = Int32.Parse((sender as Control).Tag.ToString());
+            ReloadSlotImg(index);
+        }
+
 
     }
 }
