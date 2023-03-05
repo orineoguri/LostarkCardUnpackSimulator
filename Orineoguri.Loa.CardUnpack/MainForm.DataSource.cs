@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orineoguri.Loa.CardUnpack
 {
@@ -51,16 +47,16 @@ namespace Orineoguri.Loa.CardUnpack
                 new[] {(int)CardName.Valtan,(int)CardName.Illiakan, (int)CardName.Biackiss,
                     (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.KoukuSaton, 0 }, 30});
 
-            _presets.Rows.Add(new object[] {7, "창의 달인", //라하르트, 몽나, 앨버하스틱, 아르카디아, 하이비 집행관
+            _presets.Rows.Add(new object[] {7, "창의 달인",
                 new[] {(int)CardName.Larhart,(int)CardName.GingerWale, (int)CardName.PhantomKnight,
                     (int)CardName.Alberhastic, (int)CardName.Arcadia, (int)CardName.HybeeExecutioner, 0 }, 30});
 
-            _presets.Rows.Add(new object[] {8, "세 우마르 + 라제니스", //에이케르, 나베르, 알레그로
+            _presets.Rows.Add(new object[] {8, "세 우마르 + 라제니스",
                 new[] {(int)CardName.Eikerr,(int)CardName.Naber, (int)CardName.EstherGalaturr,
                     (int)CardName.Beatrice, (int)CardName.Alegro, 0, 0 }, 25});
 
+            //프리셋 제목만 있는 배열 반환값으로 전달
             var nameArray = _presets.Select().Select(x => x["name"]).ToArray();
-
             return nameArray.Cast<string>().ToArray();
 
         }

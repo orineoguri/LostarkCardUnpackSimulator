@@ -1,11 +1,6 @@
 ﻿using Orineoguri.Loa.CardUnpack.Properties;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Orineoguri.Loa.CardUnpack
@@ -61,7 +56,7 @@ namespace Orineoguri.Loa.CardUnpack
             }
         }
 
-        private Bitmap MakeGrayScale(Bitmap original)
+        private Bitmap MakeGrayScale(Bitmap original) //수집안된 카드 이미지 회색조로 표시
         {
             //create a blank bitmap the same size as original
             Bitmap newBitmap = new Bitmap(original.Width, original.Height);
@@ -90,7 +85,7 @@ namespace Orineoguri.Loa.CardUnpack
             return newBitmap;
         }
 
-        private void InitializeSlotImages()
+        private void InitializeSlotImages() //각성레벨, 잔여량 이미지 표시를 위한 pictureBox영역 초기화
         {
             for (int index = 0; index < NUMBER_OF_SLOTS; index++)
             {
@@ -112,7 +107,7 @@ namespace Orineoguri.Loa.CardUnpack
                 _slotAwakes[index].Controls.Add(_slotRemains[index]);
 
                 _cardNames[index].DataSource = _cardNameList.Clone();
-                _cardNames[index].SelectedIndex = 0;
+                _cardNames[index].SelectedIndex = 0; //이미지 영역 초기화 직후 카드슬롯 빈 공간으로 통일
             }
         }
     }
