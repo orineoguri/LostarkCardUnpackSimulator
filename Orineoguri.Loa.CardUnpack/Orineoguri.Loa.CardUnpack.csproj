@@ -51,6 +51,9 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForm.DataSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
@@ -103,11 +106,14 @@
     <Content Include="Resources\Img021.png" />
     <Content Include="Resources\Img022.png" />
     <Content Include="Resources\Img023.png" />
+    <Content Include="Resources\Img028.png" />
     <Content Include="Resources\Img041.png" />
     <Content Include="Resources\Img080.png" />
     <Content Include="Resources\Img081.png" />
     <Content Include="Resources\Img117.png" />
     <Content Include="Resources\Img127.png" />
+    <Content Include="Resources\Img174.png" />
+    <Content Include="Resources\Img175.png" />
     <Content Include="Resources\Img213.png" />
     <Content Include="Resources\Img237.png" />
     <Content Include="Resources\s_pirateCoin.png" />

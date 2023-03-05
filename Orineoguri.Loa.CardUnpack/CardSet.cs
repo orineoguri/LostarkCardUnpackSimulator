@@ -14,7 +14,7 @@ namespace Orineoguri.Loa.CardUnpack
         {
             new HashSet<int>() 
             { //0번 일반전선팩
-                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.waye, (int)CardName.Illiakan,
+                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.Waye, (int)CardName.Illiakan,
                 (int)CardName.Beatrice, (int)CardName.Azena, (int)CardName.Bahunturr, (int)CardName.EstherLuteran, 
                 (int)CardName.EstherSien, (int)CardName.EstherGalaturr, (int)CardName.Ninave, (int)CardName.SaneKoukuSaton, 
                 (int)CardName.Aman, (int)CardName.LordSilian, (int)CardName.DelainAman, (int)CardName.Kharmine, (int)CardName.GuardianLu
@@ -28,7 +28,7 @@ namespace Orineoguri.Loa.CardUnpack
             { //2번 로아온 전선팩
                 (int)CardName.Valtan, (int)CardName.Biackiss, (int)CardName.KoukuSaton,
                 (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.Kadan,
-                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.waye, (int)CardName.Illiakan,
+                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.Waye, (int)CardName.Illiakan,
                 (int)CardName.Beatrice, (int)CardName.Azena, (int)CardName.Bahunturr, (int)CardName.EstherLuteran,
                 (int)CardName.EstherSien, (int)CardName.EstherGalaturr, (int)CardName.Ninave, (int)CardName.SaneKoukuSaton,
                 (int)CardName.Aman, (int)CardName.LordSilian, (int)CardName.DelainAman, (int)CardName.Kharmine, (int)CardName.GuardianLu

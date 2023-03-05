@@ -85,6 +85,22 @@ namespace Orineoguri.Loa.CardUnpack
             this.buttonOnce = new System.Windows.Forms.Button();
             this.buttonSimulate = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.trackRepeatCount = new System.Windows.Forms.TrackBar();
+            this.checkNoAbyss = new System.Windows.Forms.CheckBox();
+            this.labelRelicHeroic = new System.Windows.Forms.Label();
+            this.labelRelicRare = new System.Windows.Forms.Label();
+            this.labelRelicHigh = new System.Windows.Forms.Label();
+            this.labelEntire = new System.Windows.Forms.Label();
+            this.labelPirateCoin = new System.Windows.Forms.Label();
+            this.labelRawRelic = new System.Windows.Forms.Label();
+            this.labelRawHeroic = new System.Windows.Forms.Label();
+            this.labelRawRare = new System.Windows.Forms.Label();
+            this.labelRawHigh = new System.Windows.Forms.Label();
+            this.labelRawCommon = new System.Windows.Forms.Label();
+            this.labelRelecSelection = new System.Windows.Forms.Label();
+            this.labelCommanderSelection = new System.Windows.Forms.Label();
+            this.LabelLoaonSelection = new System.Windows.Forms.Label();
+            this.labelRepeatCount = new System.Windows.Forms.Label();
             this.imgSelectionPack = new System.Windows.Forms.PictureBox();
             this.imgPirateCoin = new System.Windows.Forms.PictureBox();
             this.imgRawCommon = new System.Windows.Forms.PictureBox();
@@ -103,22 +119,6 @@ namespace Orineoguri.Loa.CardUnpack
             this.imgSlot2 = new System.Windows.Forms.PictureBox();
             this.imgSlot1 = new System.Windows.Forms.PictureBox();
             this.imgSlot0 = new System.Windows.Forms.PictureBox();
-            this.trackRepeatCount = new System.Windows.Forms.TrackBar();
-            this.checkNoAbyss = new System.Windows.Forms.CheckBox();
-            this.labelRelicHeroic = new System.Windows.Forms.Label();
-            this.labelRelicRare = new System.Windows.Forms.Label();
-            this.labelRelicHigh = new System.Windows.Forms.Label();
-            this.labelEntire = new System.Windows.Forms.Label();
-            this.labelPirateCoin = new System.Windows.Forms.Label();
-            this.labelRawRelic = new System.Windows.Forms.Label();
-            this.labelRawHeroic = new System.Windows.Forms.Label();
-            this.labelRawRare = new System.Windows.Forms.Label();
-            this.labelRawHigh = new System.Windows.Forms.Label();
-            this.labelRawCommon = new System.Windows.Forms.Label();
-            this.labelRelecSelection = new System.Windows.Forms.Label();
-            this.labelCommanderSelection = new System.Windows.Forms.Label();
-            this.LabelLoaonSelection = new System.Windows.Forms.Label();
-            this.labelRepeatCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.awakeSlot0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.remainingSlot0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awakeSlot1)).BeginInit();
@@ -153,6 +153,7 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericRelicSelection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommanderSelection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLoaonSelection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackRepeatCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSelectionPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPirateCoin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgRawCommon)).BeginInit();
@@ -171,7 +172,6 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.imgSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSlot0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackRepeatCount)).BeginInit();
             this.SuspendLayout();
             // 
             // Preset
@@ -542,11 +542,6 @@ namespace Orineoguri.Loa.CardUnpack
             this.targetAwakeLevel.Name = "targetAwakeLevel";
             this.targetAwakeLevel.Size = new System.Drawing.Size(120, 20);
             this.targetAwakeLevel.TabIndex = 38;
-            this.targetAwakeLevel.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
             // 
             // centerLine
             // 
@@ -821,6 +816,153 @@ namespace Orineoguri.Loa.CardUnpack
             this.progressBar.Size = new System.Drawing.Size(938, 23);
             this.progressBar.TabIndex = 74;
             // 
+            // trackRepeatCount
+            // 
+            this.trackRepeatCount.LargeChange = 1;
+            this.trackRepeatCount.Location = new System.Drawing.Point(459, 568);
+            this.trackRepeatCount.Maximum = 20;
+            this.trackRepeatCount.Minimum = 1;
+            this.trackRepeatCount.Name = "trackRepeatCount";
+            this.trackRepeatCount.Size = new System.Drawing.Size(256, 45);
+            this.trackRepeatCount.TabIndex = 71;
+            this.trackRepeatCount.Value = 10;
+            // 
+            // checkNoAbyss
+            // 
+            this.checkNoAbyss.AutoSize = true;
+            this.checkNoAbyss.Location = new System.Drawing.Point(468, 530);
+            this.checkNoAbyss.Name = "checkNoAbyss";
+            this.checkNoAbyss.Size = new System.Drawing.Size(298, 17);
+            this.checkNoAbyss.TabIndex = 70;
+            this.checkNoAbyss.Text = "범위 카드팩2에서 일반 전설팩 선택하기 (남바절 수집용)";
+            this.checkNoAbyss.UseVisualStyleBackColor = true;
+            // 
+            // labelRelicHeroic
+            // 
+            this.labelRelicHeroic.AutoSize = true;
+            this.labelRelicHeroic.Location = new System.Drawing.Point(75, 371);
+            this.labelRelicHeroic.Name = "labelRelicHeroic";
+            this.labelRelicHeroic.Size = new System.Drawing.Size(90, 13);
+            this.labelRelicHeroic.TabIndex = 75;
+            this.labelRelicHeroic.Text = "전영팩 / 전영팩2";
+            // 
+            // labelRelicRare
+            // 
+            this.labelRelicRare.AutoSize = true;
+            this.labelRelicRare.Location = new System.Drawing.Point(254, 371);
+            this.labelRelicRare.Name = "labelRelicRare";
+            this.labelRelicRare.Size = new System.Drawing.Size(90, 13);
+            this.labelRelicRare.TabIndex = 76;
+            this.labelRelicRare.Text = "전희팩 / 전희팩2";
+            // 
+            // labelRelicHigh
+            // 
+            this.labelRelicHigh.AutoSize = true;
+            this.labelRelicHigh.Location = new System.Drawing.Point(432, 371);
+            this.labelRelicHigh.Name = "labelRelicHigh";
+            this.labelRelicHigh.Size = new System.Drawing.Size(90, 13);
+            this.labelRelicHigh.TabIndex = 77;
+            this.labelRelicHigh.Text = "전고팩 / 전고팩2";
+            // 
+            // labelEntire
+            // 
+            this.labelEntire.AutoSize = true;
+            this.labelEntire.Location = new System.Drawing.Point(610, 371);
+            this.labelEntire.Name = "labelEntire";
+            this.labelEntire.Size = new System.Drawing.Size(90, 13);
+            this.labelEntire.TabIndex = 78;
+            this.labelEntire.Text = "전체팩 / 전체팩2";
+            // 
+            // labelPirateCoin
+            // 
+            this.labelPirateCoin.AutoSize = true;
+            this.labelPirateCoin.Location = new System.Drawing.Point(788, 371);
+            this.labelPirateCoin.Name = "labelPirateCoin";
+            this.labelPirateCoin.Size = new System.Drawing.Size(95, 13);
+            this.labelPirateCoin.TabIndex = 79;
+            this.labelPirateCoin.Text = "페이토 / 페르마타";
+            // 
+            // labelRawRelic
+            // 
+            this.labelRawRelic.AutoSize = true;
+            this.labelRawRelic.Location = new System.Drawing.Point(78, 451);
+            this.labelRawRelic.Name = "labelRawRelic";
+            this.labelRawRelic.Size = new System.Drawing.Size(84, 13);
+            this.labelRawRelic.TabIndex = 80;
+            this.labelRawRelic.Text = "전설팩 / 심연팩";
+            // 
+            // labelRawHeroic
+            // 
+            this.labelRawHeroic.AutoSize = true;
+            this.labelRawHeroic.Location = new System.Drawing.Point(257, 451);
+            this.labelRawHeroic.Name = "labelRawHeroic";
+            this.labelRawHeroic.Size = new System.Drawing.Size(65, 13);
+            this.labelRawHeroic.TabIndex = 81;
+            this.labelRawHeroic.Text = "영웅 카드팩";
+            // 
+            // labelRawRare
+            // 
+            this.labelRawRare.AutoSize = true;
+            this.labelRawRare.Location = new System.Drawing.Point(435, 451);
+            this.labelRawRare.Name = "labelRawRare";
+            this.labelRawRare.Size = new System.Drawing.Size(65, 13);
+            this.labelRawRare.TabIndex = 82;
+            this.labelRawRare.Text = "희귀 카드팩";
+            // 
+            // labelRawHigh
+            // 
+            this.labelRawHigh.AutoSize = true;
+            this.labelRawHigh.Location = new System.Drawing.Point(613, 451);
+            this.labelRawHigh.Name = "labelRawHigh";
+            this.labelRawHigh.Size = new System.Drawing.Size(65, 13);
+            this.labelRawHigh.TabIndex = 83;
+            this.labelRawHigh.Text = "고급 카드팩";
+            // 
+            // labelRawCommon
+            // 
+            this.labelRawCommon.AutoSize = true;
+            this.labelRawCommon.Location = new System.Drawing.Point(788, 451);
+            this.labelRawCommon.Name = "labelRawCommon";
+            this.labelRawCommon.Size = new System.Drawing.Size(65, 13);
+            this.labelRawCommon.TabIndex = 84;
+            this.labelRawCommon.Text = "일반 카드팩";
+            // 
+            // labelRelecSelection
+            // 
+            this.labelRelecSelection.AutoSize = true;
+            this.labelRelecSelection.Location = new System.Drawing.Point(74, 531);
+            this.labelRelecSelection.Name = "labelRelecSelection";
+            this.labelRelecSelection.Size = new System.Drawing.Size(65, 13);
+            this.labelRelecSelection.TabIndex = 85;
+            this.labelRelecSelection.Text = "전설 선택팩";
+            // 
+            // labelCommanderSelection
+            // 
+            this.labelCommanderSelection.AutoSize = true;
+            this.labelCommanderSelection.Location = new System.Drawing.Point(200, 530);
+            this.labelCommanderSelection.Name = "labelCommanderSelection";
+            this.labelCommanderSelection.Size = new System.Drawing.Size(76, 13);
+            this.labelCommanderSelection.TabIndex = 86;
+            this.labelCommanderSelection.Text = "군단장 선택팩";
+            // 
+            // LabelLoaonSelection
+            // 
+            this.LabelLoaonSelection.AutoSize = true;
+            this.LabelLoaonSelection.Location = new System.Drawing.Point(326, 531);
+            this.LabelLoaonSelection.Name = "LabelLoaonSelection";
+            this.LabelLoaonSelection.Size = new System.Drawing.Size(76, 13);
+            this.LabelLoaonSelection.TabIndex = 87;
+            this.LabelLoaonSelection.Text = "로아온 선택팩";
+            // 
+            // labelRepeatCount
+            // 
+            this.labelRepeatCount.AutoSize = true;
+            this.labelRepeatCount.Location = new System.Drawing.Point(719, 572);
+            this.labelRepeatCount.Name = "labelRepeatCount";
+            this.labelRepeatCount.Size = new System.Drawing.Size(157, 13);
+            this.labelRepeatCount.TabIndex = 88;
+            this.labelRepeatCount.Text = "시뮬레이션 반복횟수 : 100,000";
+            // 
             // imgSelectionPack
             // 
             this.imgSelectionPack.Image = global::Orineoguri.Loa.CardUnpack.Properties.Resources.s_selectionPack;
@@ -997,153 +1139,6 @@ namespace Orineoguri.Loa.CardUnpack
             this.imgSlot0.TabStop = false;
             this.imgSlot0.Tag = "0";
             // 
-            // trackRepeatCount
-            // 
-            this.trackRepeatCount.LargeChange = 1;
-            this.trackRepeatCount.Location = new System.Drawing.Point(459, 568);
-            this.trackRepeatCount.Maximum = 20;
-            this.trackRepeatCount.Minimum = 1;
-            this.trackRepeatCount.Name = "trackRepeatCount";
-            this.trackRepeatCount.Size = new System.Drawing.Size(256, 45);
-            this.trackRepeatCount.TabIndex = 71;
-            this.trackRepeatCount.Value = 10;
-            // 
-            // checkNoAbyss
-            // 
-            this.checkNoAbyss.AutoSize = true;
-            this.checkNoAbyss.Location = new System.Drawing.Point(468, 530);
-            this.checkNoAbyss.Name = "checkNoAbyss";
-            this.checkNoAbyss.Size = new System.Drawing.Size(298, 17);
-            this.checkNoAbyss.TabIndex = 70;
-            this.checkNoAbyss.Text = "범위 카드팩2에서 일반 전설팩 선택하기 (남바절 수집용)";
-            this.checkNoAbyss.UseVisualStyleBackColor = true;
-            // 
-            // labelRelicHeroic
-            // 
-            this.labelRelicHeroic.AutoSize = true;
-            this.labelRelicHeroic.Location = new System.Drawing.Point(75, 371);
-            this.labelRelicHeroic.Name = "labelRelicHeroic";
-            this.labelRelicHeroic.Size = new System.Drawing.Size(90, 13);
-            this.labelRelicHeroic.TabIndex = 75;
-            this.labelRelicHeroic.Text = "전영팩 / 전영팩2";
-            // 
-            // labelRelicRare
-            // 
-            this.labelRelicRare.AutoSize = true;
-            this.labelRelicRare.Location = new System.Drawing.Point(254, 371);
-            this.labelRelicRare.Name = "labelRelicRare";
-            this.labelRelicRare.Size = new System.Drawing.Size(90, 13);
-            this.labelRelicRare.TabIndex = 76;
-            this.labelRelicRare.Text = "전희팩 / 전희팩2";
-            // 
-            // labelRelicHigh
-            // 
-            this.labelRelicHigh.AutoSize = true;
-            this.labelRelicHigh.Location = new System.Drawing.Point(432, 371);
-            this.labelRelicHigh.Name = "labelRelicHigh";
-            this.labelRelicHigh.Size = new System.Drawing.Size(90, 13);
-            this.labelRelicHigh.TabIndex = 77;
-            this.labelRelicHigh.Text = "전고팩 / 전고팩2";
-            // 
-            // labelEntire
-            // 
-            this.labelEntire.AutoSize = true;
-            this.labelEntire.Location = new System.Drawing.Point(610, 371);
-            this.labelEntire.Name = "labelEntire";
-            this.labelEntire.Size = new System.Drawing.Size(90, 13);
-            this.labelEntire.TabIndex = 78;
-            this.labelEntire.Text = "전체팩 / 전체팩2";
-            // 
-            // labelPirateCoin
-            // 
-            this.labelPirateCoin.AutoSize = true;
-            this.labelPirateCoin.Location = new System.Drawing.Point(788, 371);
-            this.labelPirateCoin.Name = "labelPirateCoin";
-            this.labelPirateCoin.Size = new System.Drawing.Size(95, 13);
-            this.labelPirateCoin.TabIndex = 79;
-            this.labelPirateCoin.Text = "페이토 / 페르마타";
-            // 
-            // labelRawRelic
-            // 
-            this.labelRawRelic.AutoSize = true;
-            this.labelRawRelic.Location = new System.Drawing.Point(78, 451);
-            this.labelRawRelic.Name = "labelRawRelic";
-            this.labelRawRelic.Size = new System.Drawing.Size(84, 13);
-            this.labelRawRelic.TabIndex = 80;
-            this.labelRawRelic.Text = "전설팩 / 심연팩";
-            // 
-            // labelRawHeroic
-            // 
-            this.labelRawHeroic.AutoSize = true;
-            this.labelRawHeroic.Location = new System.Drawing.Point(257, 451);
-            this.labelRawHeroic.Name = "labelRawHeroic";
-            this.labelRawHeroic.Size = new System.Drawing.Size(65, 13);
-            this.labelRawHeroic.TabIndex = 81;
-            this.labelRawHeroic.Text = "영웅 카드팩";
-            // 
-            // labelRawRare
-            // 
-            this.labelRawRare.AutoSize = true;
-            this.labelRawRare.Location = new System.Drawing.Point(435, 451);
-            this.labelRawRare.Name = "labelRawRare";
-            this.labelRawRare.Size = new System.Drawing.Size(65, 13);
-            this.labelRawRare.TabIndex = 82;
-            this.labelRawRare.Text = "희귀 카드팩";
-            // 
-            // labelRawHigh
-            // 
-            this.labelRawHigh.AutoSize = true;
-            this.labelRawHigh.Location = new System.Drawing.Point(613, 451);
-            this.labelRawHigh.Name = "labelRawHigh";
-            this.labelRawHigh.Size = new System.Drawing.Size(65, 13);
-            this.labelRawHigh.TabIndex = 83;
-            this.labelRawHigh.Text = "고급 카드팩";
-            // 
-            // labelRawCommon
-            // 
-            this.labelRawCommon.AutoSize = true;
-            this.labelRawCommon.Location = new System.Drawing.Point(788, 451);
-            this.labelRawCommon.Name = "labelRawCommon";
-            this.labelRawCommon.Size = new System.Drawing.Size(65, 13);
-            this.labelRawCommon.TabIndex = 84;
-            this.labelRawCommon.Text = "일반 카드팩";
-            // 
-            // labelRelecSelection
-            // 
-            this.labelRelecSelection.AutoSize = true;
-            this.labelRelecSelection.Location = new System.Drawing.Point(74, 531);
-            this.labelRelecSelection.Name = "labelRelecSelection";
-            this.labelRelecSelection.Size = new System.Drawing.Size(65, 13);
-            this.labelRelecSelection.TabIndex = 85;
-            this.labelRelecSelection.Text = "전설 선택팩";
-            // 
-            // labelCommanderSelection
-            // 
-            this.labelCommanderSelection.AutoSize = true;
-            this.labelCommanderSelection.Location = new System.Drawing.Point(200, 530);
-            this.labelCommanderSelection.Name = "labelCommanderSelection";
-            this.labelCommanderSelection.Size = new System.Drawing.Size(76, 13);
-            this.labelCommanderSelection.TabIndex = 86;
-            this.labelCommanderSelection.Text = "군단장 선택팩";
-            // 
-            // LabelLoaonSelection
-            // 
-            this.LabelLoaonSelection.AutoSize = true;
-            this.LabelLoaonSelection.Location = new System.Drawing.Point(326, 531);
-            this.LabelLoaonSelection.Name = "LabelLoaonSelection";
-            this.LabelLoaonSelection.Size = new System.Drawing.Size(76, 13);
-            this.LabelLoaonSelection.TabIndex = 87;
-            this.LabelLoaonSelection.Text = "로아온 선택팩";
-            // 
-            // labelRepeatCount
-            // 
-            this.labelRepeatCount.AutoSize = true;
-            this.labelRepeatCount.Location = new System.Drawing.Point(719, 572);
-            this.labelRepeatCount.Name = "labelRepeatCount";
-            this.labelRepeatCount.Size = new System.Drawing.Size(157, 13);
-            this.labelRepeatCount.TabIndex = 88;
-            this.labelRepeatCount.Text = "시뮬레이션 반복횟수 : 100,000";
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1241,7 +1236,6 @@ namespace Orineoguri.Loa.CardUnpack
             this.Controls.Add(this.imgSlot0);
             this.Name = "MainForm";
             this.Text = "로스트아크 카드깡 시뮬레이터";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.awakeSlot0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.remainingSlot0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awakeSlot1)).EndInit();
@@ -1276,6 +1270,7 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.numericRelicSelection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommanderSelection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLoaonSelection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackRepeatCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSelectionPack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPirateCoin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgRawCommon)).EndInit();
@@ -1294,7 +1289,6 @@ namespace Orineoguri.Loa.CardUnpack
             ((System.ComponentModel.ISupportInitialize)(this.imgSlot2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSlot1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSlot0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackRepeatCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

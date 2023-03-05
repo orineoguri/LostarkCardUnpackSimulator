@@ -253,6 +253,16 @@ namespace Orineoguri.Loa.CardUnpack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Img028 {
+            get {
+                object obj = ResourceManager.GetObject("Img028", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Img041 {
             get {
                 object obj = ResourceManager.GetObject("Img041", resourceCulture);
@@ -296,6 +306,26 @@ namespace Orineoguri.Loa.CardUnpack.Properties {
         internal static System.Drawing.Bitmap Img127 {
             get {
                 object obj = ResourceManager.GetObject("Img127", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Img174 {
+            get {
+                object obj = ResourceManager.GetObject("Img174", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Img175 {
+            get {
+                object obj = ResourceManager.GetObject("Img175", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
