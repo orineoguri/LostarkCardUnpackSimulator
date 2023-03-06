@@ -124,6 +124,7 @@ namespace Orineoguri.Loa.CardUnpack
         {
             UnpackRangedCardPacks(); //범위 카드팩 일단 해체
             Dictionary<int, int> cardList = new Dictionary<int, int>();
+            cardList[0] = 0; //빈슬롯은 무조건 0장으로
             for(int i = 1; i <= COMMON_END; i++) { cardList[i] = 0; } //카드리스트 내용물 0으로 초기화
 
             for(int i = 0; i < _rawCardPacks[(int)CardRank.Abyss]; i++) //심연팩

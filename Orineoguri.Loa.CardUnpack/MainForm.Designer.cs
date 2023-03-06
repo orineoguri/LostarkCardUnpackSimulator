@@ -825,6 +825,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             // textResultOutput
             // 
+            this.textResultOutput.HideSelection = false;
             this.textResultOutput.Location = new System.Drawing.Point(13, 613);
             this.textResultOutput.Name = "textResultOutput";
             this.textResultOutput.ReadOnly = true;
@@ -840,6 +841,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.buttonOnce.TabIndex = 73;
             this.buttonOnce.Text = "한번 해보기";
             this.buttonOnce.UseVisualStyleBackColor = true;
+            this.buttonOnce.Click += new System.EventHandler(this.buttonOnce_Click);
             // 
             // buttonSimulate
             // 

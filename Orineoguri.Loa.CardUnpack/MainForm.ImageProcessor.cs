@@ -14,8 +14,8 @@ namespace Orineoguri.Loa.CardUnpack
                 _slotImages[index].Image = (Bitmap)Resources.ResourceManager.GetObject("Img000");
 
                 //각성수치, 잔여량 안보이게
-                _slotAwakes[index].Visible = false;
-                _slotRemains[index].Visible = false;
+                _slotAwakeImages[index].Visible = false;
+                _slotRemainsImages[index].Visible = false;
 
                 return;
             }
@@ -29,8 +29,8 @@ namespace Orineoguri.Loa.CardUnpack
                 _slotImages[index].Image = MakeGrayScale(slotImage);
 
                 //각성수치, 잔여량 안보이게
-                _slotAwakes[index].Visible = false;
-                _slotRemains[index].Visible = false;
+                _slotAwakeImages[index].Visible = false;
+                _slotRemainsImages[index].Visible = false;
 
                 return;
             }
@@ -43,15 +43,15 @@ namespace Orineoguri.Loa.CardUnpack
                 _slotImages[index].Image = slotImage;
 
                 //각성레벨 반영
-                _slotAwakes[index].Visible = true;
+                _slotAwakeImages[index].Visible = true;
                 Bitmap awakeImage = (Bitmap)Resources.ResourceManager.GetObject("awake" + _cardAwakeLevel[index].Value.ToString());
-                _slotAwakes[index].Image = awakeImage;
+                _slotAwakeImages[index].Image = awakeImage;
 
                 //잔여량 반영
-                if(_cardRemains[index].Value == 0) { _slotRemains[index].Visible = false; return; } //잔여량 0이면 표시안함
-                _slotRemains[index].Visible = true;
+                if(_cardRemains[index].Value == 0) { _slotRemainsImages[index].Visible = false; return; } //잔여량 0이면 표시안함
+                _slotRemainsImages[index].Visible = true;
                 Bitmap remainsImage = (Bitmap)Resources.ResourceManager.GetObject("remain" + ((int)_cardRemains[index].Value).ToString("D2"));
-                _slotRemains[index].Image = remainsImage;
+                _slotRemainsImages[index].Image = remainsImage;
 
             }
         }
@@ -89,22 +89,22 @@ namespace Orineoguri.Loa.CardUnpack
         {
             for (int index = 0; index < NUMBER_OF_SLOTS; index++)
             {
-                _slotAwakes[index] = new PictureBox
+                _slotAwakeImages[index] = new PictureBox
                 {
                     Size = SLOT_IMG_SIZE,
                     Location = SLOT_IMG_LOCATION,
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     BackColor = Color.Transparent
                 };
-                _slotRemains[index] = new PictureBox
+                _slotRemainsImages[index] = new PictureBox
                 {
                     Size = SLOT_IMG_SIZE,
                     Location = SLOT_IMG_LOCATION,
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     BackColor = Color.Transparent
                 };
-                _slotImages[index].Controls.Add(_slotAwakes[index]);
-                _slotAwakes[index].Controls.Add(_slotRemains[index]);
+                _slotImages[index].Controls.Add(_slotAwakeImages[index]);
+                _slotAwakeImages[index].Controls.Add(_slotRemainsImages[index]);
 
                 _cardNames[index].DataSource = _cardNameList.Clone();
                 _cardNames[index].SelectedIndex = 0; //이미지 영역 초기화 직후 카드슬롯 빈 공간으로 통일
