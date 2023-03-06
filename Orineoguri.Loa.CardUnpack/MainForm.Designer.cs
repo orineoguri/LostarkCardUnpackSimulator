@@ -851,12 +851,14 @@ namespace Orineoguri.Loa.CardUnpack
             this.buttonSimulate.TabIndex = 74;
             this.buttonSimulate.Text = "확률 구하기";
             this.buttonSimulate.UseVisualStyleBackColor = true;
+            this.buttonSimulate.Click += new System.EventHandler(this.buttonSimulate_Click);
             // 
             // progressBar
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(0, 771);
+            this.progressBar.Maximum = 100000;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(938, 23);
             this.progressBar.TabIndex = 74;
@@ -871,6 +873,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.trackRepeatCount.Size = new System.Drawing.Size(256, 45);
             this.trackRepeatCount.TabIndex = 71;
             this.trackRepeatCount.Value = 10;
+            this.trackRepeatCount.ValueChanged += new System.EventHandler(this.trackRepeatCount_ValueChanged);
             // 
             // checkNoAbyss
             // 

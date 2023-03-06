@@ -149,6 +149,37 @@ namespace Orineoguri.Loa.CardUnpack
 
         }
 
+        private void trackRepeatCount_ValueChanged(object sender, EventArgs e)
+        {
+            labelRepeatCount.Text = $"시뮬레이션 반복횟수 : {trackRepeatCount.Value}0,000";
+            progressBar.Maximum = trackRepeatCount.Value * 10000; //프로그래스바 최대수치도 조정
+        }
 
+        private void buttonSimulate_Click(object sender, EventArgs e)
+        {
+            int succeedCount = 0;
+            textResultOutput.Clear();
+            textResultOutput.AppendText($"시뮬레이션 시작 ({DateTime.Now.ToString("HH:mm:ss")})");
+            for(int simulationCount = 0; simulationCount < trackRepeatCount.Value*10000; simulationCount++)
+            {
+                SetUpAndUnpackCards();
+                if (_cardSet.CanBeTargetLevelWithSelectionPack()) { succeedCount++; }
+                progressBar.Value = simulationCount + 1; //프로그래스바 진행
+            }
+            progressBar.Value = 0;
+            textResultOutput.AppendText(Environment.NewLine);
+            textResultOutput.AppendText($"시뮬레이션 종료 ({DateTime.Now.ToString("HH:mm:ss")})");
+            textResultOutput.AppendText(Environment.NewLine);
+            textResultOutput.AppendText("------------------------------------------------------------");
+
+            textResultOutput.AppendText(Environment.NewLine);
+            textResultOutput.SelectionFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
+            textResultOutput.AppendText($"총 {trackRepeatCount.Value*10000}회 시행중 {succeedCount}회 성공");
+
+            textResultOutput.AppendText(Environment.NewLine);
+            textResultOutput.SelectionFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
+            textResultOutput.AppendText($"목표레벨 달성 확률 : {(double)succeedCount / (double)trackRepeatCount.Value / 100}%");
+
+        }
     }
 }
