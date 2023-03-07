@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -22,8 +23,9 @@ namespace Orineoguri.Loa.CardUnpack
         private PictureBox[] _slotAwakeImages; //슬롯별 각성레벨 이미지
         private PictureBox[] _slotRemainsImages; //슬롯별 카드 잔여량 이미지
 
-        private CardSet _cardSet;
-        private CardPacks _cardPacks;
+        private CardDeckChecker _cardSet;
+        private CardUnpacker _cardPacks;
+        private BackgroundWorker _asyncWorker;
 
         public MainForm()
         {
@@ -41,6 +43,7 @@ namespace Orineoguri.Loa.CardUnpack
             Preset.DataSource = InitializePresets().Clone(); //데이터소스 초기화
             _isDataInitialized = true; //데이터소스 초기화 전 이벤트 핸들러 호출 방지용
             InitializeSlotImages(); //이미지 슬롯 초기화
+            InitializeAsyncWorker(); //시뮬레이션을 위한 비동기 쓰레드 초기화 관련 필드/메소드 초기화
             
         }
 
@@ -62,64 +65,13 @@ namespace Orineoguri.Loa.CardUnpack
             }
         }
 
-        private int GetCardAmount(int slot) //슬롯정보로 카드매수 구하기
-        {
-            if(!_cardCollected[slot].Checked) { return 0; } //명함수집도 못했으면 0
-            int result = 1; //명함수집 확인했으니 1장부터 시작
-
-            switch (_cardAwakeLevel[slot].Value) //각성수치 카드 장수에 반영
-            {
-                case 1: result += 1; break;
-                case 2: result += 3; break;
-                case 3: result += 6; break;
-                case 4: result += 10; break;
-                case 5: result += 15; break;
-            }
-
-            result += (int)_cardRemains[slot].Value; //여분카드 반영
-
-            return result;
-        }
-
-        private Dictionary<int, int> SetUpAndUnpackCards() //카드팩, 카드셋 초기설정
-        {
-            if (checkNoAbyss.Checked)
-            { //남바절 모드 켜져있으면 범위팩2 시리즈도 전부 범위팩1 위치에 합산
-                _cardPacks = new CardPacks(
-                    (int)numericRawAbyss.Value, (int)numericRawRelic.Value, (int)numericRawHeroic.Value,
-                    (int)numericRawRare.Value, (int)numericRawHigh.Value, (int)numericRawCommon.Value,
-                    (int)(numericRelicHeroic.Value + numericRelicHeroic2.Value),
-                    (int)(numericRelicRare.Value + numericRelicRare2.Value), (int)(numericRelicHigh.Value + numericRelicHigh2.Value),
-                    (int)(numericEntire.Value + numericCoin.Value + numericCoin2.Value + numericEntire2.Value),
-                    0, 0, 0, 0);
-            }
-            else
-            {
-                _cardPacks = new CardPacks(
-                    (int)numericRawAbyss.Value, (int)numericRawRelic.Value, (int)numericRawHeroic.Value,
-                    (int)numericRawRare.Value, (int)numericRawHigh.Value, (int)numericRawCommon.Value,
-                    (int)numericRelicHeroic.Value, (int)numericRelicRare.Value, (int)numericRelicHigh.Value,
-                    (int)(numericEntire.Value + numericCoin.Value + numericCoin2.Value),
-                    (int)numericRelicHeroic2.Value, (int)numericRelicRare2.Value, (int)numericRelicHigh2.Value, (int)numericEntire2.Value);
-            }
-
-            var unpackResult = _cardPacks.UnpackRawCardPacks();
-
-            _cardSet = new CardSet( //기존에 슬롯에 있던 카드에 새로 얻은 카드들 더해서 생성자에 반영
-                    _cardNames[0].SelectedIndex, _cardNames[1].SelectedIndex, _cardNames[2].SelectedIndex, _cardNames[3].SelectedIndex,
-                    _cardNames[4].SelectedIndex, _cardNames[5].SelectedIndex, _cardNames[6].SelectedIndex,
-                    GetCardAmount(0) + unpackResult[_cardNames[0].SelectedIndex], GetCardAmount(1) + unpackResult[_cardNames[1].SelectedIndex],
-                    GetCardAmount(2) + unpackResult[_cardNames[2].SelectedIndex], GetCardAmount(3) + unpackResult[_cardNames[3].SelectedIndex],
-                    GetCardAmount(4) + unpackResult[_cardNames[4].SelectedIndex], GetCardAmount(5) + unpackResult[_cardNames[5].SelectedIndex],
-                    GetCardAmount(6) + unpackResult[_cardNames[6].SelectedIndex],
-                    (int)numericRelicSelection.Value, (int)numericCommanderSelection.Value, (int)numericLoaonSelection.Value, (int)targetAwakeLevel.Value);
-
-            return unpackResult;
-        }
-
         private void buttonOnce_Click(object sender, EventArgs e)
         {
-            var unpackResult = SetUpAndUnpackCards();
+            if (_asyncWorker.IsBusy) { return; } //결과창 충돌 방지
+
+            _cardPacks = SetUpCardUnpacker();
+            var unpackResult = _cardPacks.UnpackRawCardPacks();
+            _cardSet = SetUpCardDeckChecker(unpackResult);
             textResultOutput.Clear();
             textResultOutput.AppendText("카드팩 해제 결과\n");
             textResultOutput.AppendText("------------------------------------------------------------");
@@ -157,28 +109,10 @@ namespace Orineoguri.Loa.CardUnpack
 
         private void buttonSimulate_Click(object sender, EventArgs e)
         {
-            int succeedCount = 0;
+            if (_asyncWorker.IsBusy) { return; } //스레드 중복실행 방지
             textResultOutput.Clear();
             textResultOutput.AppendText($"시뮬레이션 시작 ({DateTime.Now.ToString("HH:mm:ss")})");
-            for(int simulationCount = 0; simulationCount < trackRepeatCount.Value*10000; simulationCount++)
-            {
-                SetUpAndUnpackCards();
-                if (_cardSet.CanBeTargetLevelWithSelectionPack()) { succeedCount++; }
-                progressBar.Value = simulationCount + 1; //프로그래스바 진행
-            }
-            progressBar.Value = 0;
-            textResultOutput.AppendText(Environment.NewLine);
-            textResultOutput.AppendText($"시뮬레이션 종료 ({DateTime.Now.ToString("HH:mm:ss")})");
-            textResultOutput.AppendText(Environment.NewLine);
-            textResultOutput.AppendText("------------------------------------------------------------");
-
-            textResultOutput.AppendText(Environment.NewLine);
-            textResultOutput.SelectionFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
-            textResultOutput.AppendText($"총 {trackRepeatCount.Value*10000}회 시행중 {succeedCount}회 성공");
-
-            textResultOutput.AppendText(Environment.NewLine);
-            textResultOutput.SelectionFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
-            textResultOutput.AppendText($"목표레벨 달성 확률 : {(double)succeedCount / (double)trackRepeatCount.Value / 100}%");
+            _asyncWorker.RunWorkerAsync(argument: trackRepeatCount.Value * 10000);
 
         }
     }

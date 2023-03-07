@@ -2,7 +2,7 @@
 
 namespace Orineoguri.Loa.CardUnpack
 {
-    class CardSet
+    class CardDeckChecker
     {
         private int[] _slots;
         private int[] _quantity;
@@ -35,7 +35,7 @@ namespace Orineoguri.Loa.CardUnpack
             }
         };
 
-        public CardSet( //메인폼용 생성자
+        public CardDeckChecker( //메인폼용 생성자
             int slot1, int slot2, int slot3, int slot4, int slot5, int slot6, int slot7, //슬롯별 카드 번호, 빈슬롯0
             int quan1, int quan2, int quan3, int quan4, int quan5, int quan6, int quan7, //슬롯별 카드 개수, 없는카드 0
             int relicSelection, int commanderSelection, int loaonSelection, int target) //전선팩
@@ -50,7 +50,7 @@ namespace Orineoguri.Loa.CardUnpack
             }
         }
 
-        public CardSet(int[] slots, int[] quantity, int[] selectionPacks, int target) //내부 재성성용 생성자
+        public CardDeckChecker(int[] slots, int[] quantity, int[] selectionPacks, int target) //내부 재성성용 생성자
         {
             this._slots = slots;
             this._quantity = quantity;
@@ -120,7 +120,7 @@ namespace Orineoguri.Loa.CardUnpack
             return required;
         }
 
-        public CardSet GetLevelupCardSet(int slot) //선택슬롯에 전선팩 사용해 각성레벨을 올린 새로운 카드리스트, 레벨업 불가능하면 null 반환
+        public CardDeckChecker GetLevelupCardSet(int slot) //선택슬롯에 전선팩 사용해 각성레벨을 올린 새로운 카드리스트, 레벨업 불가능하면 null 반환
         {
             if(_quantity[slot] > 15) { return null; } //풀각이면 각성 불가
             if (_slots[slot] == 0) { return null; } //빈슬롯이면 각성 불가
@@ -140,7 +140,7 @@ namespace Orineoguri.Loa.CardUnpack
                     currentQuantityForRegenerate[slot] += gainedFromSelectionPack; //지금까지 얻은 적립량 반영
                     currentSelectionPack[index] -= required; //남은 요구량 만큼 전선팩 차감
 
-                    return new CardSet(this._slots, currentQuantityForRegenerate, currentSelectionPack, this._targetAwakeLevel);
+                    return new CardDeckChecker(this._slots, currentQuantityForRegenerate, currentSelectionPack, this._targetAwakeLevel);
                 }
                 else //현재 요구량이 선택팩 보유량보다 많다면
                 {
@@ -157,23 +157,23 @@ namespace Orineoguri.Loa.CardUnpack
         {
             if(this.GetCurrentAwakeLevel() >= _targetAwakeLevel) { return true; } //이미 목표각성 달성했으면 성공
 
-            Queue<CardSet> BFSQueue = new Queue<CardSet>(); //너비우선탐색용 큐
+            Queue<CardDeckChecker> BFSQueue = new Queue<CardDeckChecker>(); //너비우선탐색용 큐
             for (int index = 0; index < _slots.Length; index++)
             {
-                CardSet currentNode = this.GetLevelupCardSet(index);
+                CardDeckChecker currentNode = this.GetLevelupCardSet(index);
                 if (currentNode is null) { continue; } //레벨업 가능한 슬롯이면 일단 큐에 넣어보기
                 else { BFSQueue.Enqueue(currentNode); }
             }
 
             while (BFSQueue.Count > 0) //큐에 노드 하나라도 들어있으면
             {
-                CardSet currentNode = BFSQueue.Dequeue();
+                CardDeckChecker currentNode = BFSQueue.Dequeue();
                 if(currentNode.GetCurrentAwakeLevel() >= _targetAwakeLevel) { return true; } //첫번째 노드 목표각성 달성했으면 성공
                 else
                 {
                     for(int index=0; index< _slots.Length; index++) //목표각성 달성 실패했으면 자식노드 7종 테스트후 큐에 삽입
                     {
-                        CardSet nextNode = currentNode.GetLevelupCardSet(index);
+                        CardDeckChecker nextNode = currentNode.GetLevelupCardSet(index);
                         if(nextNode is null) { continue; }
                         else { BFSQueue.Enqueue(nextNode); }
                     }

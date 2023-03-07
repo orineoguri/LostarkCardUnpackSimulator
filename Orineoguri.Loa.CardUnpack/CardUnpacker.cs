@@ -13,7 +13,7 @@ namespace Orineoguri.Loa.CardUnpack
         Common = 5 //일반
     }
 
-    public class CardPacks
+    public class CardUnpacker
     {
         private Dictionary<int, int>[] _rangedCardPack = new[] { new Dictionary<int, int>(), new Dictionary<int, int>()};
         private Dictionary<int, int> _rawCardPacks = new Dictionary<int, int>(); //개별 카드팩
@@ -32,7 +32,7 @@ namespace Orineoguri.Loa.CardUnpack
         private const int COMMON_START = 258; //일반팩 258번~285번(총 28종)
         private const int COMMON_END = 285;
 
-        public CardPacks(int abyss, int relic, int heroic, int rare, int high, int common, //심연팩, 전설팩, 영웅팩, 희귀팩, 고급팩, 일반팩
+        public CardUnpacker(int abyss, int relic, int heroic, int rare, int high, int common, //심연팩, 전설팩, 영웅팩, 희귀팩, 고급팩, 일반팩
             int relic_heroic, int relic_rare, int relic_high, int entire, //전영팩1, 전희팩1, 전고팩1, 전체팩1
             int relic_heroic2, int relic_rare2, int relic_high2, int entire2) //전영팩2, 전희팩2, 전고팩2, 전체팩2
         {
