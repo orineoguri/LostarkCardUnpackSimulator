@@ -29,6 +29,7 @@ namespace Orineoguri.Loa.CardUnpack
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Preset = new System.Windows.Forms.ComboBox();
             this.labelPreset = new System.Windows.Forms.Label();
             this.nameSlot0 = new System.Windows.Forms.ComboBox();
@@ -204,6 +205,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot0.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot0.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot0.Enabled = false;
             this.nameSlot0.FormattingEnabled = true;
             this.nameSlot0.Location = new System.Drawing.Point(13, 64);
             this.nameSlot0.Name = "nameSlot0";
@@ -216,6 +218,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot1.Enabled = false;
             this.nameSlot1.FormattingEnabled = true;
             this.nameSlot1.Location = new System.Drawing.Point(144, 64);
             this.nameSlot1.Name = "nameSlot1";
@@ -228,6 +231,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot2.Enabled = false;
             this.nameSlot2.FormattingEnabled = true;
             this.nameSlot2.Location = new System.Drawing.Point(275, 64);
             this.nameSlot2.Name = "nameSlot2";
@@ -240,6 +244,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot3.Enabled = false;
             this.nameSlot3.FormattingEnabled = true;
             this.nameSlot3.Location = new System.Drawing.Point(406, 64);
             this.nameSlot3.Name = "nameSlot3";
@@ -252,6 +257,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot4.Enabled = false;
             this.nameSlot4.FormattingEnabled = true;
             this.nameSlot4.Location = new System.Drawing.Point(537, 64);
             this.nameSlot4.Name = "nameSlot4";
@@ -264,6 +270,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot5.Enabled = false;
             this.nameSlot5.FormattingEnabled = true;
             this.nameSlot5.Location = new System.Drawing.Point(668, 64);
             this.nameSlot5.Name = "nameSlot5";
@@ -276,6 +283,7 @@ namespace Orineoguri.Loa.CardUnpack
             // 
             this.nameSlot6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.nameSlot6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.nameSlot6.Enabled = false;
             this.nameSlot6.FormattingEnabled = true;
             this.nameSlot6.Location = new System.Drawing.Point(799, 64);
             this.nameSlot6.Name = "nameSlot6";
@@ -1282,6 +1290,7 @@ namespace Orineoguri.Loa.CardUnpack
             this.Controls.Add(this.imgSlot2);
             this.Controls.Add(this.imgSlot1);
             this.Controls.Add(this.imgSlot0);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "로스트아크 카드깡 시뮬레이터";
             ((System.ComponentModel.ISupportInitialize)(this.awakeSlot0)).EndInit();

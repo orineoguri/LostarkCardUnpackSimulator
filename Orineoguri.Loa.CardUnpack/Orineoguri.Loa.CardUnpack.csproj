@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -99,6 +102,7 @@
     <Content Include="Resources\awake3.png" />
     <Content Include="Resources\awake4.png" />
     <Content Include="Resources\awake5.png" />
+    <Content Include="Resources\icon.ico" />
     <Content Include="Resources\Img000.png" />
     <Content Include="Resources\Img001.png" />
     <Content Include="Resources\Img002.png" />
