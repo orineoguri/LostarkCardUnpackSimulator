@@ -20,17 +20,17 @@ namespace Orineoguri.Loa.CardUnpack
         private Random _random; //난수발생기
 
         private const int ABYSS_START = 1; //심연팩 1번~19번(총 19종)
-        private const int ABYSS_END = 19;
+        private const int ABYSS_END = 20;
         private const int RELIC_START = 6; //전설팩 6번~24번(총 19종)
-        private const int RELIC_END = 24;
+        private const int RELIC_END = 25;
         private const int HEROIC_START = 25; //영웅팩 22번~99번(총 75종)
-        private const int HEROIC_END = 99;
+        private const int HEROIC_END = 100;
         private const int RARE_START = 100; //희귀팩 100번~200번(총 101종)
-        private const int RARE_END = 200; 
+        private const int RARE_END = 201; 
         private const int HIGH_START = 201; //고급팩 201번~257번(총 57종)
-        private const int HIGH_END = 257;
+        private const int HIGH_END = 258;
         private const int COMMON_START = 258; //일반팩 258번~285번(총 28종)
-        private const int COMMON_END = 285;
+        private const int COMMON_END = 286;
 
         public CardUnpacker(int abyss, int relic, int heroic, int rare, int high, int common, //심연팩, 전설팩, 영웅팩, 희귀팩, 고급팩, 일반팩
             int relic_heroic, int relic_rare, int relic_high, int entire, //전영팩1, 전희팩1, 전고팩1, 전체팩1
