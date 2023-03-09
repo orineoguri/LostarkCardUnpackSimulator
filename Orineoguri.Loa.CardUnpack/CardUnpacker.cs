@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orineoguri.Loa.CardUnpack
 {
@@ -16,26 +13,26 @@ namespace Orineoguri.Loa.CardUnpack
         Common = 5 //일반
     }
 
-    public class CardPacks
+    public class CardUnpacker
     {
         private Dictionary<int, int>[] _rangedCardPack = new[] { new Dictionary<int, int>(), new Dictionary<int, int>()};
         private Dictionary<int, int> _rawCardPacks = new Dictionary<int, int>(); //개별 카드팩
         private Random _random; //난수발생기
 
         private const int ABYSS_START = 1; //심연팩 1번~19번(총 19종)
-        private const int ABYSS_END = 19;
+        private const int ABYSS_END = 20;
         private const int RELIC_START = 6; //전설팩 6번~24번(총 19종)
-        private const int RELIC_END = 24;
+        private const int RELIC_END = 25;
         private const int HEROIC_START = 25; //영웅팩 22번~99번(총 75종)
-        private const int HEROIC_END = 99;
+        private const int HEROIC_END = 100;
         private const int RARE_START = 100; //희귀팩 100번~200번(총 101종)
-        private const int RARE_END = 200; 
+        private const int RARE_END = 201; 
         private const int HIGH_START = 201; //고급팩 201번~257번(총 57종)
-        private const int HIGH_END = 257;
+        private const int HIGH_END = 258;
         private const int COMMON_START = 258; //일반팩 258번~285번(총 28종)
-        private const int COMMON_END = 285;
+        private const int COMMON_END = 286;
 
-        public CardPacks(int abyss, int relic, int heroic, int rare, int high, int common, //심연팩, 전설팩, 영웅팩, 희귀팩, 고급팩, 일반팩
+        public CardUnpacker(int abyss, int relic, int heroic, int rare, int high, int common, //심연팩, 전설팩, 영웅팩, 희귀팩, 고급팩, 일반팩
             int relic_heroic, int relic_rare, int relic_high, int entire, //전영팩1, 전희팩1, 전고팩1, 전체팩1
             int relic_heroic2, int relic_rare2, int relic_high2, int entire2) //전영팩2, 전희팩2, 전고팩2, 전체팩2
         {
@@ -127,6 +124,7 @@ namespace Orineoguri.Loa.CardUnpack
         {
             UnpackRangedCardPacks(); //범위 카드팩 일단 해체
             Dictionary<int, int> cardList = new Dictionary<int, int>();
+            cardList[0] = 0; //빈슬롯은 무조건 0장으로
             for(int i = 1; i <= COMMON_END; i++) { cardList[i] = 0; } //카드리스트 내용물 0으로 초기화
 
             for(int i = 0; i < _rawCardPacks[(int)CardRank.Abyss]; i++) //심연팩

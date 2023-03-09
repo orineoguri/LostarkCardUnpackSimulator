@@ -10,7 +10,7 @@
         Silian = 6, //실리안
         Shandi = 7, //샨디
         GingerWale = 8, //진저웨일
-        waye = 9, //웨이
+        Waye = 9, //웨이
         Illiakan = 10, //일리아칸
         Beatrice = 11, //베아트리스
         Azena = 12, //아제나
@@ -25,6 +25,16 @@
         LordSilian = 21, //국왕 실리안
         DelainAman = 22, //데런 아만
         Kharmine = 23, //카마인
-        GuardianLu = 24 //가디언 루
+        GuardianLu = 24, //가디언 루
+        Alegro = 28, //알레그로
+        Larhart = 41, //라하르트
+        Alberhastic = 80, //앨버하스틱
+        Arcadia = 81, //아르카디아
+        Seria = 117, //세리아
+        HybeeExecutioner = 127, //하이비 집행관
+        Eikerr = 174, //에이케르
+        Naber = 175, //나베르
+        ExecutionerSolas = 213, //집행관 솔라스
+        PhantomKnight = 237 //몽환의 나이트
     }
 }

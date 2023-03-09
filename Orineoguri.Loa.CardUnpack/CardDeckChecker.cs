@@ -2,7 +2,7 @@
 
 namespace Orineoguri.Loa.CardUnpack
 {
-    class CardSet
+    class CardDeckChecker
     {
         private int[] _slots;
         private int[] _quantity;
@@ -13,8 +13,8 @@ namespace Orineoguri.Loa.CardUnpack
         private static readonly HashSet<int>[] _selectionPackContents =
         {
             new HashSet<int>() 
-            { //0번 일반전선팩
-                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.waye, (int)CardName.Illiakan,
+            { //0번 일반 전설카드 선택팩
+                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.Waye, (int)CardName.Illiakan,
                 (int)CardName.Beatrice, (int)CardName.Azena, (int)CardName.Bahunturr, (int)CardName.EstherLuteran, 
                 (int)CardName.EstherSien, (int)CardName.EstherGalaturr, (int)CardName.Ninave, (int)CardName.SaneKoukuSaton, 
                 (int)CardName.Aman, (int)CardName.LordSilian, (int)CardName.DelainAman, (int)CardName.Kharmine, (int)CardName.GuardianLu
@@ -25,17 +25,17 @@ namespace Orineoguri.Loa.CardUnpack
                 (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.Illiakan
             },
             new HashSet<int>()
-            { //2번 로아온 전선팩
+            { //2번 로아온 선택팩
                 (int)CardName.Valtan, (int)CardName.Biackiss, (int)CardName.KoukuSaton,
                 (int)CardName.Abrelshud, (int)CardName.Kamen, (int)CardName.Kadan,
-                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.waye, (int)CardName.Illiakan,
+                (int)CardName.Silian, (int)CardName.Shandi, (int)CardName.GingerWale, (int)CardName.Waye, (int)CardName.Illiakan,
                 (int)CardName.Beatrice, (int)CardName.Azena, (int)CardName.Bahunturr, (int)CardName.EstherLuteran,
                 (int)CardName.EstherSien, (int)CardName.EstherGalaturr, (int)CardName.Ninave, (int)CardName.SaneKoukuSaton,
                 (int)CardName.Aman, (int)CardName.LordSilian, (int)CardName.DelainAman, (int)CardName.Kharmine, (int)CardName.GuardianLu
             }
         };
 
-        public CardSet( //메인폼용 생성자
+        public CardDeckChecker( //메인폼용 생성자
             int slot1, int slot2, int slot3, int slot4, int slot5, int slot6, int slot7, //슬롯별 카드 번호, 빈슬롯0
             int quan1, int quan2, int quan3, int quan4, int quan5, int quan6, int quan7, //슬롯별 카드 개수, 없는카드 0
             int relicSelection, int commanderSelection, int loaonSelection, int target) //전선팩
@@ -50,8 +50,8 @@ namespace Orineoguri.Loa.CardUnpack
             }
         }
 
-        public CardSet(int[] slots, int[] quantity, int[] selectionPacks, int target)
-        { //내부 재성성용 생성자
+        public CardDeckChecker(int[] slots, int[] quantity, int[] selectionPacks, int target) //내부 재성성용 생성자
+        {
             this._slots = slots;
             this._quantity = quantity;
             this._selectionPacks = selectionPacks;
@@ -99,8 +99,8 @@ namespace Orineoguri.Loa.CardUnpack
             return (sum - min); //7장을 장착할 수는 없으므로 각성레벨 가장낮은 카드의 레벨 빼고 반환
         }
 
-        private int getRequiredQuantityToLevelUp(int currentQuantity)
-        { //다음각성레벨 가려면 몇장이나 더 필요하죠?
+        private int getRequiredQuantityToLevelUp(int currentQuantity) //다음각성레벨 가려면 몇장이나 더 필요하죠?
+        {
             int required = 0;
             switch (currentQuantity)
             {
@@ -120,7 +120,7 @@ namespace Orineoguri.Loa.CardUnpack
             return required;
         }
 
-        public CardSet GetLevelupCardSet(int slot)
+        public CardDeckChecker GetLevelupCardSet(int slot) //선택슬롯에 전선팩 사용해 각성레벨을 올린 새로운 카드리스트, 레벨업 불가능하면 null 반환
         {
             if(_quantity[slot] > 15) { return null; } //풀각이면 각성 불가
             if (_slots[slot] == 0) { return null; } //빈슬롯이면 각성 불가
@@ -140,12 +140,12 @@ namespace Orineoguri.Loa.CardUnpack
                     currentQuantityForRegenerate[slot] += gainedFromSelectionPack; //지금까지 얻은 적립량 반영
                     currentSelectionPack[index] -= required; //남은 요구량 만큼 전선팩 차감
 
-                    return new CardSet(this._slots, currentQuantityForRegenerate, currentSelectionPack, this._targetAwakeLevel);
+                    return new CardDeckChecker(this._slots, currentQuantityForRegenerate, currentSelectionPack, this._targetAwakeLevel);
                 }
                 else //현재 요구량이 선택팩 보유량보다 많다면
                 {
                     required -= currentSelectionPack[index]; //일단 가진 전선팩 전부 까고 다음 우선순위의 선택팩으로
-                    gainedFromSelectionPack += currentSelectionPack[index]; //깐만큼 적립
+                    gainedFromSelectionPack += currentSelectionPack[index]; //선택팩 깐만큼 적립
                     currentSelectionPack[index] = 0;
                 }
             }
@@ -153,27 +153,27 @@ namespace Orineoguri.Loa.CardUnpack
             return null;
         }
 
-        public bool CanBeTargetLevelWithSelectionPack()
+        public bool CanBeTargetLevelWithSelectionPack() //선택팩을 전부 동원하면 목표 각성수치에 도달이 가능한가?
         {
             if(this.GetCurrentAwakeLevel() >= _targetAwakeLevel) { return true; } //이미 목표각성 달성했으면 성공
 
-            Queue<CardSet> BFSQueue = new Queue<CardSet>(); //너비우선탐색용 큐
+            Queue<CardDeckChecker> BFSQueue = new Queue<CardDeckChecker>(); //너비우선탐색용 큐
             for (int index = 0; index < _slots.Length; index++)
             {
-                CardSet currentNode = this.GetLevelupCardSet(index);
+                CardDeckChecker currentNode = this.GetLevelupCardSet(index);
                 if (currentNode is null) { continue; } //레벨업 가능한 슬롯이면 일단 큐에 넣어보기
                 else { BFSQueue.Enqueue(currentNode); }
             }
 
             while (BFSQueue.Count > 0) //큐에 노드 하나라도 들어있으면
             {
-                CardSet currentNode = BFSQueue.Dequeue();
+                CardDeckChecker currentNode = BFSQueue.Dequeue();
                 if(currentNode.GetCurrentAwakeLevel() >= _targetAwakeLevel) { return true; } //첫번째 노드 목표각성 달성했으면 성공
                 else
                 {
                     for(int index=0; index< _slots.Length; index++) //목표각성 달성 실패했으면 자식노드 7종 테스트후 큐에 삽입
                     {
-                        CardSet nextNode = currentNode.GetLevelupCardSet(index);
+                        CardDeckChecker nextNode = currentNode.GetLevelupCardSet(index);
                         if(nextNode is null) { continue; }
                         else { BFSQueue.Enqueue(nextNode); }
                     }
